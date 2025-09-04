@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: Italiana;
+  line-height: 1.6;
+  background-color: #da0808;
+  overflow-x: hidden;
+}
+
+.fullscreen-section {
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  background-color: #e0f7fa;
+}
+
+.squares {
+  top: 17vw;
+  left: 2vw;
+  height: 30vh;
+  background-color: #1608da;
+  position: relative;
+}
+
+/* ======== HEADER ======== */
+.site-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: clamp(10px, 2vh, 20px) 0;
+  background: linear-gradient(to bottom, black, transparent);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+.logo {
+  height: clamp(30px, 6vh, 50px);
+}
+
+/* ======== NAVIGACIJA ======== */
+.nav-menu a,
+.hamburger {
+  color: white !important;
+}
+
+.navbar .nav-menu a {
+  margin: 0 clamp(10px, 2vw, 15px);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: clamp(14px, 2vw, 18px);
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.navbar .nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #ED9201;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar .nav-menu a:hover::after {
+  transform: scaleX(1);
+}
+
+.hamburger {
+  font-size: clamp(20px, 3vw, 30px);
+  cursor: pointer;
+  display: none;
+}
+
+/* ======== NASLOV & OPIS ======== */
+.naslov {
+  color: #FFF;
+  font-family: Italiana;
+  font-size: clamp(2rem, 8vw, 8rem);
+  font-style: normal;
+  line-height: normal;
+}
+
+.opis {
+  bottom: 500vh;
+  left: 5vw;
+  right: 5vw;
+  width: 40vw;
+  color: white;
+  font-size: clamp(14px, 2vw, 20px);
+  font-family: Instrument Sans;
+  font-weight: 700;
+  word-wrap: break-word;
+  background: rgba(0, 0, 0, 0.53);
+  box-shadow: clamp(5px, 1vw, 10px) clamp(5px, 1vw, 10px) clamp(10px, 2vw, 15px) rgba(0, 0, 0, 0.5);
+}
+
+.imgLine {
+  position: absolute;
+  bottom: 5vh;
+  left: 5vw;
+  right: 5vw;
+  width: 90vw;
+  height: auto;
+  max-height: 50vh;
+  object-fit: cover;
+}
+
+/* ======== SLIKE I POZICIJE ======== */
+.images {
+  position: absolute;
+  right: 1vw;
+  top: 10vh;
+  bottom: 10vh;
+  width: 40vw;
+  background: rgb(66, 8, 226);
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.img11,
+.img22,
+.img33,
+.img44,
+.img55 {
+  position: absolute;
+  transform: rotate(45deg) translate(-50%, -50%);
+  transform-origin: top left;
+}
+
+.img11 {
+  width: clamp(10vmin, 25vmin, 35vmin);
+  height: clamp(10vmin, 25vmin, 35vmin);
+  top: 40vmin;
+  left: 20vmin;
+  border: 8px solid #FFFBFB;
+  z-index: 3;
+}
+
+.img22 {
+  width: clamp(8vmin, 18vmin, 22vmin);
+  height: clamp(8vmin, 18vmin, 22vmin);
+  top: 25vmin;
+  left: 34vmin;
+  z-index: 2;
+}
+
+.img33 {
+  width: clamp(6vmin, 12vmin, 15vmin);
+  height: clamp(6vmin, 12vmin, 15vmin);
+  top: 15vmin;
+  left: 43vmin;
+  z-index: 1;
+}
+
+.img44 {
+  width: clamp(8vmin, 18vmin, 22vmin);
+  height: clamp(8vmin, 18vmin, 22vmin);
+  top: 55vmin;
+  left: 34vmin;
+  z-index: 2;
+}
+
+.img55 {
+  width: clamp(6vmin, 12vmin, 15vmin);
+  height: clamp(6vmin, 12vmin, 15vmin);
+  top: 65vmin;
+  left: 43vmin;
+  z-index: 1;
+}
+
+/* ======== RESPONSIVE NAVIGACIJA ======== */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background: black;
+    position: absolute;
+    top: clamp(50px, 8vh, 60px);
+    right: clamp(5px, 2vw, 10px);
+    padding: clamp(10px, 2vh, 15px);
+    box-shadow: 0 clamp(1px, 0.5vh, 2px) clamp(2px, 1vh, 5px) white;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .images {
+    display: flex;
+    flex-direction: row-reverse;
+    width: clamp(15rem, 70vw, 28rem);
+    height: clamp(12rem, 40vh, 24rem);
+    right: 2%;
+    top: 25%;
+    bottom: auto;
+  }
+
+  .opis {
+    width: clamp(14rem, 80vw, 32rem);
+    height: clamp(8rem, 15vh, 14rem);
+    font-size: clamp(14px, 3vw, 18px);
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-item-filter {
+    justify-content: center;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: clamp(20px, 5vw, 60px);
+  background-color: #111;
+  color: #fff;
+  font-size: clamp(14px, 2vw, 18px);
+}
+
+.contact-item-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(10px, 2vw, 20px);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-item {
+  flex: 1 1 clamp(100px, 30vw, 250px);
+  background-color: #222;
+  padding: clamp(10px, 2vh, 20px);
+  border-radius: 8px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
