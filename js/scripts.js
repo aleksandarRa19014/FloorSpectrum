@@ -39,10 +39,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function promeniPozadinu(novaSlika) {
     sekcija.classList.remove("pokazi-fade");
-    void sekcija.offsetWidth; // Forsira reflow za reset animacije
-    sekcija.style.setProperty("--bg-slika", novaSlika);
-    sekcija.classList.add("pokazi-fade");
-  }
+    sekcija.classList.add("fade-out");
+
+    setTimeout(() => {
+      sekcija.style.setProperty("--bg-slika", novaSlika);
+      sekcija.classList.remove("fade-out");
+      sekcija.classList.add("pokazi-fade");
+    }, 250); // pola trajanja animacije
+}
+
 
   // Klik na thumbnail slike
   thumbnails.forEach(thumb => {

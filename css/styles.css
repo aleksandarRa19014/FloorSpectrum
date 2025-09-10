@@ -186,16 +186,36 @@ body {
 }
 
 #pocetna {
-  background-image: var(--bg-slika, url('/images/deking.jpg'));
+  position: relative;
+  overflow: hidden;
+}
+
+#pocetna::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+    background-image:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1) 0%,     /* crna pri dnu */
+      rgba(0, 0, 0, 0) 30%     /* providno na 10% visine */
+    ),
+    var(--bg-slika, url('/images/deking.jpg'));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: background-image 0.5s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
+  z-index: 0;
 }
 
-#pocetna.pokazi-fade {
-  animation: fadeBg 0.5s ease-in-out;
+#pocetna.pokazi-fade::before {
+  opacity: 1;
 }
+
+#pocetna.fade-out::before {
+  opacity: 0.2;
+}
+
 
 @keyframes fadeBg {
   from {
@@ -353,6 +373,23 @@ body {
   background-color: #da0808;
 }
 
+.showRoomText {
+  position: relative;
+  height: 30%;
+  width: 40%;
+  top: 15%;
+  left: 5%;
+  background-color: #da0808;
+}
+
+.maps {
+  position: relative;
+  top: 10%;
+  left: 10%;
+  width: 40%;
+  height: 50%;
+}
+
 .footer {
   position: relative;
   width: 100%;
@@ -361,40 +398,59 @@ body {
   background: linear-gradient(to bottom, #A46500, transparent);
 }
 
-.contactItemFilter {
-  display: flex;
-  flex-wrap: wrap;
+.contactNaslov {
+  position: relative;
+  height: 30%;
+  width: 15%;
+  top: 5%;
+  left: 8%;
+  color: white;
+  font-size: clamp(2rem, 2vw, 10rem);
+}
+
+.contactItem {
+  position: relative;
+  height: 80%;
+  width: 70%;
+  left: 0%;
+  top: 5%;
+  color: white;
+  font-size: clamp(1rem, 1vw, 5rem);
+}
+
+.footerIcon {
+  position: relative;
+  top: 0%;
+  left: 0%;
+  width: 20%;
+  height: auto;
+}
+
+.footerP{
+  position: relative;
+  top: -70%;
+  left: 20%;
+  color: white;
+  font-size: clamp(1rem, 1vw, 5rem);
+}
+
+.emailContacts{
+  position: relative;
+  top: -80%;
+  left: 20%;
+  width: 90%;
+  height: auto;
+}
+
+
+
+#contacts {
+  position: relative;
+  top: 40%;
+  left: -5%;
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  /* background-color: #da0808; */
-}
-
-.contact-item {
-  flex: 1 1 clamp(100px, 30vw, 250px);
-  background-color: #222;
-  padding: clamp(10px, 2vh, 20px);
-  border-radius: 8px;
-  color: #fff;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
-
-.footerIcons {
+  height: 60%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(10px, 2vw, 20px);
-}
-
-.contactText {
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  font-size: clamp(14px, 2vw, 18px);
-  padding: clamp(10px, 2vh, 20px);
-  left: 30%;
-    background-color: #da0808;
 }
 
 
