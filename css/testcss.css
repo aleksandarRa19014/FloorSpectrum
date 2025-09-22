@@ -231,6 +231,7 @@ body {
   }
 }
 
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -256,4 +257,49 @@ body {
   color: #fff;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.kontaktNaslov {
+  font-size: 2rem;
+  margin-left: 0; /* isto kao prvi kontakt */
+}
+
+/* Kontejner za kontakt stavke */
+#contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 3%; /* razmak između stavki */
+}
+
+/* Pojedinačni kontakt elementi */
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 22%; /* 4 stavke po redu sa razmakom */
+  min-width: 180px;
+}
+
+/* Ikonice */
+.footerIcon {
+  width: 15%;
+  max-width: 40px;
+  height: auto;
+}
+
+/* Tekst pored ikonice */
+.footerP {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+}
+
+/* Stil za linkove */
+.contactItem a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
 }

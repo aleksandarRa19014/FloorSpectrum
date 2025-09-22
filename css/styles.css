@@ -305,45 +305,22 @@ body {
   max-width: 100%;
 }
 
-
-.sectionZadovoljniKlienti {
-  position: relative;
-  width: 100%;
-  height: calc(var(--vh, 1vh) * 40);
-  display: flex;
-  background-color: #da0808;
-}
-
-.naslovZadovoljniKlienti {
-  position: relative;
-  height: 30%;
-  width: 20%;
-  top: -20%;
-  color: white;
-  font-size: clamp(2rem, 2vw, 10rem);
-  left: 40%;
-  background-color: #8608da;
-}
-
-.clientFeedback {
-  position: relative;
-  height: 60%;
-  width: 90%;
-  left: 5%;
-  top: 17%;
-  background-color: #08da13;
-}
-
 .clientFeedbackImages {
   position: relative;
   top: -10%;
   left: 5%;
   width: 90%;
+  gap: 24px;
   height: auto;
   display: flex;
   background-color: #8608da;
   justify-content: space-around;
 }
+
+.clientFeedbackImages > * {
+  flex: 0 0 auto;
+}
+
 
 .clientFeedbackImg{
   position: relative;
@@ -442,8 +419,6 @@ body {
   height: auto;
 }
 
-
-
 #contacts {
   position: relative;
   top: 40%;
@@ -452,6 +427,88 @@ body {
   height: 60%;
   display: flex;
 }
+
+
+.sectionZadovoljniKlienti {
+  position: relative;
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 40);
+  display: flex;
+  /* background-color: #da0808; */
+}
+
+.naslovZadovoljniKlienti {
+  position: relative;
+  height: 30%;
+  width: 60%;
+  top: 0%;
+  color: white;
+  font-size: clamp(2rem, 2vw, 10rem);
+  left: 40%;
+  /* background-color: #8608da; */
+}
+
+/* Ticker animacija */
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* Ticker kontejner */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  /*background-color: rgba(89, 0, 255, 0.9);*/
+  padding-left: 100%;
+  box-sizing: content-box;
+}
+
+/* Ticker sadržaj */
+.ticker {
+  display: inline-block;
+  height: 100%;
+  line-height: normal;
+  white-space: nowrap;
+  padding-right: 100%;
+  box-sizing: content-box;
+
+  animation-name: ticker;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+/* Stavke u tickeru */
+.ticker__item {
+  display: inline-block;
+  padding: 0 2rem;
+  height: 100%;
+}
+
+/* Stil za slike */
+.ticker__item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.clientFeedback {
+  position: relative;
+  height: 60%;
+  width: 100%;
+  left: 0%;
+  top: 0%;
+  /* background-color: #08da13; */
+}
+
 
 
 /* ======== RESPONSIVE NAVIGACIJA ======== */

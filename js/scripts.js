@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
       sekcija.style.setProperty("--bg-slika", novaSlika);
       sekcija.classList.remove("fade-out");
       sekcija.classList.add("pokazi-fade");
-    }, 250); // pola trajanja animacije
+    }, 550); // pola trajanja animacije
 }
 
 
@@ -105,4 +105,17 @@ document.addEventListener("DOMContentLoaded", function () {
       $('.nav-menu').removeClass('active');
     });
   });
+
+
+  const ticker = document.getElementById('ticker');
+
+  ticker.addEventListener('mouseenter', () => {
+    ticker.style.animationPlayState = 'paused';
+  });
+
+  ticker.addEventListener('mouseleave', () => {
+    ticker.style.animationPlayState = 'running';
+  });
+
+
 });
