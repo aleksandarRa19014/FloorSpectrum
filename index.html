@@ -6,27 +6,36 @@
     <title>Floor spectrum</title>
     <link rel="icon" type="image/png" href="images/floorLogo.png">
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/scripts.js"></script>
   </head>
   <body>
-    <header class="site-header">
-      <div class="logo">
-        <img class="img" src="images/floorLogo.png" alt="Floor Spectrum Logo">
+    <div class="splash-screen" id="splashScreen">
+      <div class="splash-content">
+        <img src="images/floorLogo.png" alt="Floor Spectrum Logo" class="splash-logo">
+        <p class="splash-message">Dobrodošli u FloorSpectrum — profesionalna ugradnja i prodaja podova, sve na jednom mestu.</p>
       </div>
-      <nav class="navbar">
-        <div class="nav-menu">
-          <a href="#pocetna">Pocetna</a>
-          <a href="#onama">O Nama</a>
-          <a href="#usluge">Usluge</a>
-          <a href="#masinsko">Mašinsko Čišćenje</a>
-          <a href="#specijalne">Specijalne ponude</a>
-          <a href="#showRoom">Show Room</a>
-          <a href="#kontakt">Kontakt</a>
+    </div>
+
+    <div id="pageContent" class="page-content">
+      <header class="site-header">
+        <div class="logo">
+          <img class="img" src="images/floorLogo.png" alt="Floor Spectrum Logo">
         </div>
-      </nav>
-      <span class="hamburger">&#9776;</span>
-    </header>
+        <nav class="navbar">
+          <div class="nav-menu">
+            <a href="#pocetna">Početna</a>
+            <a href="#onama">O Nama</a>
+            <a href="#usluge">Usluge</a>
+            <a href="#masinsko">Mašinsko Čišćenje</a>
+            <a href="#specijalne">Specijalne ponude</a>
+            <a href="#showRoom">Show Room</a>
+            <a href="#kontakt">Kontakt</a>
+          </div>
+        </nav>
+        <span class="hamburger">&#9776;</span>
+      </header>
     
     <section class="fullscreenSection" id="pocetna" >        
       <div id="laminat" class="squares">
@@ -79,12 +88,7 @@
     <div class="clientFeedback">
       <h2 class="naslovZadovoljniKlienti">Zadovoljni Klijenti</h2>
       <div class="ticker-wrap" id="tickerWrap">
-        <div class="ticker" id="ticker">
-          <div class="ticker__item"><img src="images/travaMin.png" alt="Klijent 1"></div>
-          <div class="ticker__item"><img src="images/travaMin.png" alt="Klijent 2"></div>
-          <div class="ticker__item"><img src="images/travaMin.png" alt="Klijent 3"></div>
-          <div class="ticker__item"><img src="images/travaMin.png" alt="Klijent 4"></div>
-        </div>
+        <div class="ticker" id="ticker"></div>
       </div>
     </div>
     <img class="imgLine" src="images/line.png">
@@ -120,9 +124,13 @@
       <div id="contacts">
           <div id="email" class="contactItem">
             <img class="footerIcon" src="images/mailIcon.png" alt="Email">
-            <div class="footerP">
-              <p >borislav.pantic@floorspectrum.rs</p>
-              <p >office@floorspectrum.rs</p>
+            <div class="footerP" id ="emailContacts">
+              <a href="mailto:borislav.pantic@floorspectrum.rs" class="contactItem">
+                <p >borislav.pantic@floorspectrum.rs</p>
+              </a>
+              <a href="mailto:office@floorspectrum.rs" class="contactItem">
+                <p >office@floorspectrum.rs</p>
+              </a>
             </div>
         </div>
         <div id="facebook" class="contactItem">
@@ -131,10 +139,10 @@
             <p class="footerP">Floor Spectrum</p>
           </a>
         </div>
-        <div id="phone" class="contactItem">
-            <img class="footerIcon" src="images/phoneIcon.png" alt="Telefon">
-            <p class="footerP">+381 63 8852 376</p>
-        </div>
+        <a href="tel:+381638852376" class="contactItem">
+          <img class="footerIcon" src="images/phoneIcon.png">
+          <p class="footerP">+381 63 8852 376</p>
+        </a>
         <div id="instagram" class="contactItem">
           <a href="https://www.instagram.com/floorspectrum/" target="_blank">
             <img class="footerIcon" src="images/instagramIcon.png" alt="Instagram">
@@ -143,5 +151,6 @@
         </div>
       </div>
   </footer>
+    </div>
   </body>
 </html>

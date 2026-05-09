@@ -109,13 +109,129 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const ticker = document.getElementById('ticker');
 
+  // Niz sa slikama za ticker
+  const tickerImages = [
+    { src: 'images/travaMin.png', alt: 'Proizvod 1' },
+    { src: 'images/travaMin.png', alt: 'Proizvod 2' },
+    { src: 'images/specijalnePonude.png', alt: 'Proizvod 3' },
+    { src: 'images/travaMin.png', alt: 'Proizvod 4' }
+  ];
+
+  // Generiši slike tri puta za beskonačan loop
+  const generateTickerItems = () => {
+    const tickerContainer = document.getElementById('ticker');
+    tickerContainer.innerHTML = '';
+    
+    // Dodaj zadnju sliku na početak za seamless prelazak
+    const lastImage = tickerImages[tickerImages.length - 1];
+    const firstItem = document.createElement('div');
+    firstItem.className = 'ticker__item';
+    
+    const firstLink = document.createElement('a');
+    firstLink.href = '#';
+    firstLink.style.display = 'block';
+    firstLink.style.height = '100%';
+    
+    const firstImg = document.createElement('img');
+    firstImg.src = lastImage.src;
+    firstImg.alt = lastImage.alt;
+    
+    firstLink.appendChild(firstImg);
+    firstItem.appendChild(firstLink);
+    tickerContainer.appendChild(firstItem);
+    
+    // Triput dodaj sve slike
+    for (let repeat = 0; repeat < 3; repeat++) {
+      tickerImages.forEach((image, index) => {
+        const item = document.createElement('div');
+        item.className = 'ticker__item';
+        
+        const link = document.createElement('a');
+        link.href = '#'; // Korisnik može da prosledi sa vlastitim linkovima
+        link.style.display = 'block';
+        link.style.height = '100%';
+        
+        const img = document.createElement('img');
+        img.src = image.src;
+        img.alt = image.alt;
+        
+        link.appendChild(img);
+        item.appendChild(link);
+        tickerContainer.appendChild(item);
+      });
+    }
+  };
+
+  // Inicijalizuj ticker slike
+  generateTickerItems();
+
+  // Kontinuirani scroll animacija sa JavaScript - beskonačan loop
+  let position = 0;
+  const speed = 0.5; // piksel po frame-u
+  let isRunning = true;
+  let firstItemWidth = 0;
+  let oneSetWidth = 0;
+
+  // Čekaj da se DOM učita pa izračunaj širin
+  setTimeout(() => {
+    const firstItem = ticker.children[0];
+    const secondItem = ticker.children[1];
+    
+    if (firstItem && secondItem) {
+      firstItemWidth = firstItem.offsetWidth + parseInt(window.getComputedStyle(firstItem).marginRight) + parseInt(window.getComputedStyle(firstItem).marginLeft);
+      
+      // Širin jednog seta od 4 slike
+      oneSetWidth = firstItemWidth * 4;
+    }
+  }, 100);
+
+  const animate = () => {
+    if (isRunning) {
+      position -= speed;
+      ticker.style.transform = `translate3d(${position}px, 0, 0)`;
+
+      // Glatko resetuj animaciju kada dođe do kraja
+      if (oneSetWidth > 0 && Math.abs(position) >= oneSetWidth) {
+        position = -firstItemWidth; // Resetuj na poziciju gde je zadnja slika vidljiva
+      }
+    }
+    requestAnimationFrame(animate);
+  };
+
+  animate();
+
+  // Pause/Resume na hover (desktop)
   ticker.addEventListener('mouseenter', () => {
-    ticker.style.animationPlayState = 'paused';
+    isRunning = false;
   });
 
   ticker.addEventListener('mouseleave', () => {
-    ticker.style.animationPlayState = 'running';
+    isRunning = true;
   });
 
+  // Pause/Resume na touch (mobilni uređaj)
+  ticker.addEventListener('touchstart', () => {
+    isRunning = false;
+  });
 
-});
+  ticker.addEventListener('touchend', () => {
+    isRunning = true;
+  });
+
+  // Sakrij splash screen posle 3.2 sekunde i onda prikaži stranicu
+  const splashScreen = document.getElementById('splashScreen');
+  const pageContent = document.getElementById('pageContent');
+
+  if (splashScreen) {
+    setTimeout(() => {
+      splashScreen.classList.add('hidden');
+      if (pageContent) {
+        pageContent.classList.add('visible');
+      }
+      setTimeout(() => {
+        splashScreen.remove();
+      }, 600);
+    }, 3200);
+  }
+
+})

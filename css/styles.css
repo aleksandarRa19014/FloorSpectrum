@@ -16,6 +16,120 @@ body {
   background-color: #000000;
 }
 
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  color: #ffffff;
+  z-index: 2000;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  font-family: 'Poppins', system-ui, sans-serif;
+  animation: splashIntro 0.9s ease-out forwards;
+}
+
+.splash-screen.hidden {
+  opacity: 0;
+  transform: scale(0.96);
+  pointer-events: none;
+}
+
+.splash-screen.fade-out {
+  animation: splashFadeOut 0.6s ease forwards;
+}
+
+.page-content {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s ease;
+}
+
+.page-content.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.splash-content {
+  text-align: center;
+  padding: 2rem;
+  max-width: 90%;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: splashContent 0.9s ease-out 0.1s forwards;
+}
+
+.splash-logo {
+  width: clamp(120px, 20vw, 220px);
+  height: auto;
+  margin-bottom: 1.5rem;
+  transform: scale(0.96);
+  animation: splashLogo 0.9s ease-out 0.1s forwards;
+}
+
+@keyframes splashIntro {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes splashContent {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes splashLogo {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes splashFadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+.splash-message {
+  color: #ffffff;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
 .fullscreenSection {
   position: relative;
   width: 100%;
@@ -33,6 +147,7 @@ body {
 
 /* ======== HEADER ======== */
 .site-header {
+  z-index: 10000;
   position: fixed;
   width: 100%;
   top: 0;
@@ -43,7 +158,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1000;
 }
 
 .logo {
@@ -258,17 +372,18 @@ body {
 #ikonicePodovaImg {
   position: relative;
   top: 10%;
-  left: 35%;
-  height: 80%;
+  left: 30%;
+  height: 70%;
   width: relative;
 }
 
 #uslugeImg {
   position: relative;
   top: 50%;
-  right: 55%;
+  right: 50%;
   height: 40%;
   width: 40%;
+  background-color: #da0808;
 }
 
 .masinskoText {
@@ -359,14 +474,6 @@ body {
   background-color: #da0808;
 }
 
-.maps {
-  position: relative;
-  top: 10%;
-  left: 10%;
-  width: 40%;
-  height: 50%;
-}
-
 .footer {
   position: relative;
   width: 100%;
@@ -455,7 +562,7 @@ body {
     visibility: visible;
   }
   100% {
-    transform: translate3d(-100%, 0, 0);
+    transform: translate3d(calc(-100% - 4rem), 0, 0);
   }
 }
 
@@ -465,7 +572,6 @@ body {
   overflow: hidden;
   height: 100%;
   /*background-color: rgba(89, 0, 255, 0.9);*/
-  padding-left: 100%;
   box-sizing: content-box;
 }
 
@@ -475,13 +581,8 @@ body {
   height: 100%;
   line-height: normal;
   white-space: nowrap;
-  padding-right: 100%;
   box-sizing: content-box;
-
-  animation-name: ticker;
-  animation-duration: 10s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  will-change: transform;
   animation-play-state: running;
 }
 
@@ -490,6 +591,8 @@ body {
   display: inline-block;
   padding: 0 2rem;
   height: 100%;
+  margin: 0;
+  flex-shrink: 0;
 }
 
 /* Stil za slike */
@@ -498,6 +601,13 @@ body {
   width: 100%;
   object-fit: cover;
   display: block;
+}
+
+.ticker__item a {
+  display: block;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .clientFeedback {
@@ -509,7 +619,30 @@ body {
   /* background-color: #08da13; */
 }
 
+a[href^="tel"],
+a[href^="mailto"] {
+  text-decoration: none;
+  color: inherit; /* zadrži boju teksta */
+}
 
+.showRoomImages {
+  position: relative;
+  top: 15%;
+  right: 10%; 
+  width: 40%;
+  gap: 24px;
+  height: 75%;
+  display: flex;
+  background-color: #8608da;
+  justify-content: space-around;
+}
+.maps {
+  position: relative;
+  top: 42%;
+  right: 30%;
+  width: 100%;
+  height: 50%;
+}
 
 /* ======== RESPONSIVE NAVIGACIJA ======== */
 @media (max-width: 800px) {
@@ -522,6 +655,23 @@ body {
     right: clamp(5px, 2vw, 10px);
     padding: clamp(10px, 2vh, 15px);
     box-shadow: 0 clamp(1px, 0.5vh, 2px) clamp(2px, 1vh, 5px) white;
+  }
+
+  #uslugeImg {
+    position: relative;
+    top: 50%;
+    right: 65%;
+    height: 40%;
+    width: 40%;
+    background-color: #da0808;
+  }
+
+  .masinskoCiscenjeIkonica {
+    position: relative;
+    top: 35%;
+    height: auto;
+    width: auto;
+    max-width: 100%;
   }
 
   .nav-menu.active {
@@ -567,9 +717,35 @@ body {
     right: -27%;
   }
 
+  .showRoomImages {
+   right: 40%;
+  }
+
+   .footerP {
+    position: relative;
+    top: -40%;
+    left: 20%;
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem, 1vw, 5rem);
+  }
+
+  #emailContacts {
+    position: relative;
+    top: -50%;
+    left: 20%;
+    width: 90%;
+    height: auto;
+  }
+
 }
 
 /* ======== Tablet ======== */
 @media (min-width: 481px) and (max-width: 1024px) {
-
+  /* .footerP {
+    position: relative;
+    top: -60%;
+    left: 20%;
+    color: white;
+    font-size: clamp(1rem, 1vw, 5rem);
+} */
 }
