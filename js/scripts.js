@@ -221,12 +221,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // Sakrij splash screen posle 3.2 sekunde i onda prikaži stranicu
   const splashScreen = document.getElementById('splashScreen');
   const pageContent = document.getElementById('pageContent');
+  const siteHeader = document.getElementById('siteHeader');
 
   if (splashScreen) {
     setTimeout(() => {
       splashScreen.classList.add('hidden');
-      if (pageContent) {
+      if (pageContent && siteHeader) {
         pageContent.classList.add('visible');
+        siteHeader.classList.add('visible');
       }
       setTimeout(() => {
         splashScreen.remove();
