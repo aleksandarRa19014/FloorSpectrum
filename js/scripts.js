@@ -111,13 +111,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Niz sa slikama za ticker
   const tickerImages = [
-    { src: 'images/travaMin.png', alt: 'Proizvod 1' },
-    { src: 'images/travaMin.png', alt: 'Proizvod 2' },
-    { src: 'images/specijalnePonude.png', alt: 'Proizvod 3' },
-    { src: 'images/travaMin.png', alt: 'Proizvod 4' }
+    { src: 'images/travaMin.png', alt: 'Proizvod 1', href: 'https://www.facebook.com' },
+    { src: 'images/travaMin.png', alt: 'Proizvod 2', href: 'https://www.instagram.com' },
+    { src: 'images/specijalnePonude.png', alt: 'Proizvod 3', href: 'https://www.twitter.com' },
+    { src: 'images/travaMin.png', alt: 'Proizvod 4', href: 'https://www.linkedin.com' }
   ];
 
-  // Generiši slike tri puta za beskonačan loop
+  // Generiši slike pet puta za beskonačan loop
   const generateTickerItems = () => {
     const tickerContainer = document.getElementById('ticker');
     tickerContainer.innerHTML = '';
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
     firstItem.className = 'ticker__item';
     
     const firstLink = document.createElement('a');
-    firstLink.href = '#';
+    firstLink.href = lastImage.href;
     firstLink.style.display = 'block';
     firstLink.style.height = '100%';
     
@@ -140,14 +140,14 @@ document.addEventListener("DOMContentLoaded", function () {
     firstItem.appendChild(firstLink);
     tickerContainer.appendChild(firstItem);
     
-    // Triput dodaj sve slike
-    for (let repeat = 0; repeat < 3; repeat++) {
+    // Petput dodaj sve slike
+    for (let repeat = 0; repeat < 5; repeat++) {
       tickerImages.forEach((image, index) => {
         const item = document.createElement('div');
         item.className = 'ticker__item';
         
         const link = document.createElement('a');
-        link.href = '#'; // Korisnik može da prosledi sa vlastitim linkovima
+        link.href = image.href;
         link.style.display = 'block';
         link.style.height = '100%';
         
@@ -232,8 +232,24 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       setTimeout(() => {
         splashScreen.remove();
-      }, 600);
+      }, 800);
     }, 3200);
+  }
+
+  // Slideshow za showRoom
+  const slideshowImages = document.querySelectorAll('.slideshow-image');
+  let currentIndex = 0;
+
+  function showNextImage() {
+    slideshowImages[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex + 1) % slideshowImages.length;
+    slideshowImages[currentIndex].classList.add('active');
+  }
+
+  // Postavi prvu sliku kao aktivnu
+  if (slideshowImages.length > 0) {
+    slideshowImages[0].classList.add('active');
+    setInterval(showNextImage, 2500); // Menjaj svakih 2.5 sekundi
   }
 
 })
