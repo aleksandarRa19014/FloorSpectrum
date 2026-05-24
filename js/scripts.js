@@ -75,6 +75,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Automatska rotacija svakih 5 sekundi
+  let currentThumbIndex = 0;
+  setInterval(() => {
+    thumbnails[currentThumbIndex].click();
+    currentThumbIndex = (currentThumbIndex + 1) % thumbnails.length;
+  }, 5000);
+
   // Postavljanje početnog sadržaja i pozadine
   const initialKey = getFileKey(heroImage.src);
   const initialContent = contentMap[initialKey];
