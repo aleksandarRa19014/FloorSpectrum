@@ -745,6 +745,17 @@ a[href^="mailto"] {
     box-shadow: 0 clamp(1px, 0.5vh, 2px) clamp(2px, 1vh, 5px) white;
   }
 
+  .imgLine {
+    position: absolute;
+    bottom: 5vh;
+    left: 5vw;
+    right: 5vw;
+    width: 90%;
+    height: auto;
+    max-height: 50vh;
+    object-fit: cover;
+  }
+
   #ikonicePodovaImg {
     position: relative;
     top: 10%;
@@ -1063,12 +1074,4 @@ a[href^="mailto"] {
 }
 
 /* ======== Tablet ======== */
-@media (min-width: 481px) and (max-width: 1024px) {
-  /* .footerP {
-    position: relative;
-    top: -60%;
-    left: 20%;
-    color: white;
-    font-size: clamp(1rem, 1vw, 5rem);
-} */
-}
+@media (min-width: 481px) and (max-width: 1024px) {}

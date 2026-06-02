@@ -124,88 +124,100 @@ document.addEventListener("DOMContentLoaded", function () {
     { src: 'images/travaMin.png', alt: 'Proizvod 4', href: 'https://www.linkedin.com' }
   ];
 
-  // Generiši slike pet puta za beskonačan loop
-  const generateTickerItems = () => {
+  // Seamless loop: original + original (bez "lastImage na početak" trika)
+  const renderTicker = () => {
     const tickerContainer = document.getElementById('ticker');
     tickerContainer.innerHTML = '';
-    
-    // Dodaj zadnju sliku na početak za seamless prelazak
-    const lastImage = tickerImages[tickerImages.length - 1];
-    const firstItem = document.createElement('div');
-    firstItem.className = 'ticker__item';
-    
-    const firstLink = document.createElement('a');
-    firstLink.href = lastImage.href;
-    firstLink.style.display = 'block';
-    firstLink.style.height = '100%';
-    
-    const firstImg = document.createElement('img');
-    firstImg.src = lastImage.src;
-    firstImg.alt = lastImage.alt;
-    
-    firstLink.appendChild(firstImg);
-    firstItem.appendChild(firstLink);
-    tickerContainer.appendChild(firstItem);
-    
-    // Petput dodaj sve slike
-    for (let repeat = 0; repeat < 5; repeat++) {
-      tickerImages.forEach((image, index) => {
-        const item = document.createElement('div');
-        item.className = 'ticker__item';
-        
-        const link = document.createElement('a');
-        link.href = image.href;
-        link.style.display = 'block';
-        link.style.height = '100%';
-        
-        const img = document.createElement('img');
-        img.src = image.src;
-        img.alt = image.alt;
-        
-        link.appendChild(img);
-        item.appendChild(link);
-        tickerContainer.appendChild(item);
-      });
-    }
-  };
 
-  // Inicijalizuj ticker slike
-  generateTickerItems();
+    // Pravimo original set = renderujemo dovoljno itema da "first" i "last" ivica
+    // budu realno vidljive u layout-u, a zatim dupliramo taj original set.
+    // Važno: dupliranje mora biti nad istim setom čija se širina meri (oneSetWidth).
+    const originalItems = [];
+    const reps = 5;
+    for (let r = 0; r < reps; r++) {
+      tickerImages.forEach((image) => originalItems.push(image));
+    }
+
+
+    const buildItem = (image) => {
+      const item = document.createElement('div');
+      item.className = 'ticker__item';
+
+      const link = document.createElement('a');
+      link.href = image.href;
+      link.style.display = 'block';
+      link.style.height = '100%';
+
+      const img = document.createElement('img');
+      img.src = image.src;
+      img.alt = image.alt;
+
+      link.appendChild(img);
+      item.appendChild(link);
+      return item;
+    };
+
+    // original
+    originalItems.forEach((img) => tickerContainer.appendChild(buildItem(img)));
+    // original + original
+    originalItems.forEach((img) => tickerContainer.appendChild(buildItem(img)));
+
+    return { originalCount: originalItems.length };
+  };
 
   // Kontinuirani scroll animacija sa JavaScript - beskonačan loop
-  let position = 0;
   const speed = 0.5; // piksel po frame-u
   let isRunning = true;
-  let firstItemWidth = 0;
+  let position = 0;
   let oneSetWidth = 0;
+  let rafId = null;
 
-  // Čekaj da se DOM učita pa izračunaj širin
-  setTimeout(() => {
-    const firstItem = ticker.children[0];
-    const secondItem = ticker.children[1];
-    
-    if (firstItem && secondItem) {
-      firstItemWidth = firstItem.offsetWidth + parseInt(window.getComputedStyle(firstItem).marginRight) + parseInt(window.getComputedStyle(firstItem).marginLeft);
-      
-      // Širin jednog seta od 4 slike
-      oneSetWidth = firstItemWidth * 4;
-    }
-  }, 100);
+  const measureAndStart = () => {
+    const { originalCount } = renderTicker();
 
-  const animate = () => {
-    if (isRunning) {
-      position -= speed;
-      ticker.style.transform = `translate3d(${position}px, 0, 0)`;
+    // Izmeri tačnu širinu samo prvih originalCount itema
+    const children = ticker.children;
+    if (!children || children.length < originalCount) return;
 
-      // Glatko resetuj animaciju kada dođe do kraja
-      if (oneSetWidth > 0 && Math.abs(position) >= oneSetWidth) {
-        position = -firstItemWidth; // Resetuj na poziciju gde je zadnja slika vidljiva
+    // Udaljenost od leve ivice prvog do desne ivice poslednjeg original itema
+    const first = children[0];
+    const lastOriginal = children[originalCount - 1];
+
+    const firstRect = first.getBoundingClientRect();
+    const lastRect = lastOriginal.getBoundingClientRect();
+    oneSetWidth = lastRect.right - firstRect.left;
+
+    position = 0;
+    ticker.style.transform = `translate3d(${position}px, 0, 0)`;
+
+    const animate = () => {
+      if (isRunning && oneSetWidth > 0) {
+        position -= speed;
+        // seamless reset bez skoka: pomeraj modulo dužine jednog original seta
+        if (position <= -oneSetWidth) {
+          position += oneSetWidth;
+        }
+        ticker.style.transform = `translate3d(${position}px, 0, 0)`;
       }
-    }
-    requestAnimationFrame(animate);
+      rafId = requestAnimationFrame(animate);
+    };
+
+    if (rafId) cancelAnimationFrame(rafId);
+    animate();
   };
 
-  animate();
+  measureAndStart();
+
+  // Re-init na resize-u (širine zavise od viewport-a)
+  if (typeof ResizeObserver !== 'undefined') {
+    const ro = new ResizeObserver(() => {
+      measureAndStart();
+    });
+    ro.observe(ticker);
+  } else {
+    window.addEventListener('resize', () => measureAndStart(), { passive: true });
+  }
+
 
   // Pause/Resume na hover (desktop)
   ticker.addEventListener('mouseenter', () => {
