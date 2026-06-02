@@ -617,10 +617,11 @@ body {
 }
 
 a[href^="tel"],
-a[href^="mailto"] {
+a[href^="mailto"],
+a[href*="facebook.com"],
+a[href*="instagram.com"] {
   text-decoration: none;
-  color: inherit;
-  /* zadrži boju teksta */
+  color: inherit; /* zadrži boju teksta */
 }
 
 #showRoom {
