@@ -13,6 +13,7 @@ body {
   font-family: Italiana;
   line-height: 1.6;
   background-color: #000000;
+  overflow-x: hidden;
 }
 
 .splash-screen {
@@ -738,11 +739,15 @@ a[href*="instagram.com"] {
     display: none;
     flex-direction: column;
     background: black;
-    position: absolute;
+    position: fixed;
     top: clamp(50px, 8vh, 60px);
-    right: clamp(5px, 2vw, 10px);
+    left: 30%;
+    width: min(55vw, 300px);
+    max-height: 90vh;
+    overflow-y: auto;
     padding: clamp(10px, 2vh, 15px);
-    box-shadow: 0 clamp(1px, 0.5vh, 2px) clamp(2px, 1vh, 5px) white;
+    box-shadow: 2px clamp(1px, 0.5vh, 2px) clamp(5px, 2vh, 10px) rgba(0, 0, 0, 0.8);
+    z-index: 999;
   }
 
   .imgLine {
@@ -873,11 +878,18 @@ a[href*="instagram.com"] {
   top: 0;
 }
   .nav-menu.active {
-    display: flex;
+    display: flex !important;
+    transform: scale(1.2);
+    transform-origin: top left;
+    transition: transform 0.3s ease;
   }
 
   .hamburger {
     display: block;
+    position: fixed;
+    top: clamp(10px, 2.5vh, 18px);
+    right: clamp(10px, 3vw, 18px);
+    z-index: 100000;
   }
 
   .images {
