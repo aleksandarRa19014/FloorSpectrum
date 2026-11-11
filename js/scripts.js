@@ -450,12 +450,17 @@
     measure.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none;left:-9999px;top:0;';
     hero.appendChild(measure);
 
+    // Copy font longhands: the computed `font` shorthand can be an empty string.
+    const copyFont = (cs) => {
+      ['fontFamily', 'fontSize', 'fontWeight', 'fontStyle', 'fontStretch', 'letterSpacing', 'lineHeight']
+        .forEach((k) => { measure.style[k] = cs[k]; });
+    };
+
     const fit = () => {
       titleEl.style.fontSize = '';
       const cs = getComputedStyle(titleEl);
       const base = parseFloat(cs.fontSize);
-      measure.style.font = cs.font;
-      measure.style.letterSpacing = cs.letterSpacing;
+      copyFont(cs);
       measure.style.whiteSpace = 'nowrap';
       measure.style.width = 'auto';
       let widest = 0;
@@ -467,8 +472,7 @@
       if (widest > avail && avail > 0) titleEl.style.fontSize = `${Math.floor(base * (avail / widest) * 0.98)}px`;
 
       const ds = getComputedStyle(descEl);
-      measure.style.font = ds.font;
-      measure.style.letterSpacing = ds.letterSpacing;
+      copyFont(ds);
       measure.style.whiteSpace = 'normal';
       measure.style.width = `${descEl.clientWidth}px`;
       let tallest = 0;

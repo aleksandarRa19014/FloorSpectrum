@@ -191,9 +191,9 @@
       <section class="hero" id="pocetna" aria-labelledby="heroKicker">
         <div class="hero__media" aria-hidden="true">
           <img class="hero__bg is-active" id="heroBgA"
-            src="assets/img/hero-laminat-1280.webp"
-            srcset="assets/img/hero-laminat-800.webp 800w, assets/img/hero-laminat-1280.webp 1280w, assets/img/hero-laminat-1920.webp 1920w, assets/img/hero-laminat-2560.webp 2560w"
-            sizes="(orientation: portrait) 70vh, 100vw"
+            src="assets/img/hero-parket-land-1200.webp"
+            srcset="assets/img/hero-parket-800.webp 800w, assets/img/hero-parket-land-1200.webp 1200w, assets/img/hero-parket-land-1920.webp 1920w"
+            sizes="(orientation: portrait) 50vw, 100vw"
             alt="" width="1920" height="864" decoding="async">
           <img class="hero__bg" id="heroBgB" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1920" height="864" decoding="async">
           <svg class="hero__lattice" aria-hidden="true">
@@ -210,9 +210,9 @@
           <div class="hero__content">
             <h1 class="hero__kicker eyebrow" id="heroKicker" data-reveal>Profesionalna ugradnja, prodaja i održavanje podova</h1>
             <p class="hero__title" data-reveal style="--d: 1">
-              <span class="hero__title-mask"><span class="hero__title-text" id="heroTitle">Laminat</span></span>
+              <span class="hero__title-mask"><span class="hero__title-text" id="heroTitle">Parket</span></span>
             </p>
-            <p class="hero__desc" id="heroDesc" data-reveal style="--d: 2">Naš laminat je savršen izbor za svaki dom, pružajući izvanrednu otpornost i estetiku.</p>
+            <p class="hero__desc" id="heroDesc" data-reveal style="--d: 2">Prirodni drveni parket unosi toplinu i eleganciju u prostor i traje decenijama.</p>
             <div class="hero__actions" data-reveal style="--d: 3">
               <a class="btn btn--primary" href="#kontakt">
                 <span>Zatražite ponudu</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
@@ -226,6 +226,36 @@
               <p class="materials__label" id="materialsLabel">Materijali</p>
               <ul class="materials__list" role="list" aria-labelledby="materialsLabel" id="materialsList">
                 <li><button type="button" class="materials__btn is-active" aria-pressed="true"
+                  data-key="parket" data-title="Parket"
+                  data-desc="Prirodni drveni parket unosi toplinu i eleganciju u prostor i traje decenijama."
+                  data-srcset="assets/img/hero-parket-800.webp 800w, assets/img/hero-parket-land-1200.webp 1200w, assets/img/hero-parket-land-1920.webp 1920w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
+                  data-tile="assets/img/tile-parket-160.webp 160w, assets/img/tile-parket-320.webp 320w, assets/img/tile-parket-560.webp 560w">Parket<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
+                  data-key="tepison" data-title="Tepison"
+                  data-desc="Tepison donosi toplinu i udobnost u svaki prostor, savršen za stvaranje prijatne atmosfere."
+                  data-srcset="assets/img/hero-tepih-800.webp 800w, assets/img/hero-tepih-land-1200.webp 1200w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
+                  data-tile="assets/img/tile-tepih-160.webp 160w, assets/img/tile-tepih-320.webp 320w, assets/img/tile-tepih-540.webp 540w">Tepison<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
+                  data-key="tepisi-po-meri" data-title="Tepisi po meri"
+                  data-desc="Izaberite model iz naše ponude, a mi ćemo ga iskrojiti prema merama vašeg prostora."
+                  data-srcset="assets/img/hero-tepisi-po-meri-800.webp 800w, assets/img/hero-tepisi-po-meri-land-1200.webp 1200w, assets/img/hero-tepisi-po-meri-land-1920.webp 1920w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
+                  data-tile="assets/img/tile-tepisi-po-meri-160.webp 160w, assets/img/tile-tepisi-po-meri-320.webp 320w, assets/img/tile-tepisi-po-meri-560.webp 560w">Tepisi po meri<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
+                  data-key="spc" data-title="SPC"
+                  data-desc="SPC podovi su kruti, vodootporni i izuzetno otporni na habanje, idealni i za kuhinje i kupatila."
+                  data-srcset="assets/img/hero-spc-800.webp 800w, assets/img/hero-spc-land-1200.webp 1200w, assets/img/hero-spc-land-1920.webp 1920w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
+                  data-tile="assets/img/tile-spc-160.webp 160w, assets/img/tile-spc-320.webp 320w, assets/img/tile-spc-560.webp 560w">SPC<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
+                  data-key="lvt" data-title="LVT"
+                  data-desc="LVT luksuzne vinilne ploče verno imitiraju drvo, tihe su i prijatne pod nogom."
+                  data-srcset="assets/img/hero-lvt-800.webp 800w, assets/img/hero-lvt-land-1200.webp 1200w, assets/img/hero-lvt-land-1920.webp 1920w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
+                  data-tile="assets/img/tile-lvt-160.webp 160w, assets/img/tile-lvt-320.webp 320w, assets/img/tile-lvt-560.webp 560w">LVT<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
                   data-key="laminat" data-title="Laminat"
                   data-desc="Naš laminat je savršen izbor za svaki dom, pružajući izvanrednu otpornost i estetiku."
                   data-srcset="assets/img/hero-laminat-800.webp 800w, assets/img/hero-laminat-1280.webp 1280w, assets/img/hero-laminat-1920.webp 1920w, assets/img/hero-laminat-2560.webp 2560w"
@@ -237,12 +267,6 @@
                   data-srcset="assets/img/hero-deking-800.webp 800w, assets/img/hero-deking-land-1200.webp 1200w"
                   data-sizes="(orientation: portrait) 50vw, 100vw"
                   data-tile="assets/img/tile-deking-160.webp 160w, assets/img/tile-deking-320.webp 320w, assets/img/tile-deking-560.webp 560w">Deking<span class="materials__progress" aria-hidden="true"></span></button></li>
-                <li><button type="button" class="materials__btn" aria-pressed="false"
-                  data-key="tepih" data-title="Tepih"
-                  data-desc="Tepih donosi toplinu i udobnost u svaki prostor, savršen za stvaranje prijatne atmosfere."
-                  data-srcset="assets/img/hero-tepih-800.webp 800w, assets/img/hero-tepih-land-1200.webp 1200w"
-                  data-sizes="(orientation: portrait) 50vw, 100vw"
-                  data-tile="assets/img/tile-tepih-160.webp 160w, assets/img/tile-tepih-320.webp 320w, assets/img/tile-tepih-540.webp 540w">Tepih<span class="materials__progress" aria-hidden="true"></span></button></li>
                 <li><button type="button" class="materials__btn" aria-pressed="false"
                   data-key="trava" data-title="Veštačka trava"
                   data-desc="Veštačka trava je idealna za stvaranje zelenih površina bez brige o održavanju."
@@ -262,15 +286,15 @@
           <div class="tiles" id="heroTiles" aria-hidden="true">
             <span class="tiles__accent"></span>
             <div class="tile tile--xl" data-slot="0"><div class="tile__face"><img alt="" width="560" height="560" fetchpriority="high"
-              src="assets/img/tile-laminat-560.webp" srcset="assets/img/tile-laminat-160.webp 160w, assets/img/tile-laminat-320.webp 320w, assets/img/tile-laminat-560.webp 560w" sizes="(min-width: 900px) 20vw, 40vw"></div></div>
+              src="assets/img/tile-parket-560.webp" srcset="assets/img/tile-parket-160.webp 160w, assets/img/tile-parket-320.webp 320w, assets/img/tile-parket-560.webp 560w" sizes="(min-width: 900px) 20vw, 40vw"></div></div>
             <div class="tile tile--md tile--up" data-slot="1"><div class="tile__face"><img alt="" width="320" height="320" decoding="async"
-              src="assets/img/tile-deking-320.webp" srcset="assets/img/tile-deking-160.webp 160w, assets/img/tile-deking-320.webp 320w, assets/img/tile-deking-560.webp 560w" sizes="(min-width: 900px) 13vw, 26vw"></div></div>
-            <div class="tile tile--md tile--down" data-slot="2"><div class="tile__face"><img alt="" width="320" height="320" decoding="async"
               src="assets/img/tile-tepih-320.webp" srcset="assets/img/tile-tepih-160.webp 160w, assets/img/tile-tepih-320.webp 320w, assets/img/tile-tepih-540.webp 540w" sizes="(min-width: 900px) 13vw, 26vw"></div></div>
+            <div class="tile tile--md tile--down" data-slot="2"><div class="tile__face"><img alt="" width="320" height="320" decoding="async"
+              src="assets/img/tile-tepisi-po-meri-320.webp" srcset="assets/img/tile-tepisi-po-meri-160.webp 160w, assets/img/tile-tepisi-po-meri-320.webp 320w, assets/img/tile-tepisi-po-meri-560.webp 560w" sizes="(min-width: 900px) 13vw, 26vw"></div></div>
             <div class="tile tile--sm tile--up" data-slot="3"><div class="tile__face"><img alt="" width="320" height="320" decoding="async"
-              src="assets/img/tile-trava-320.webp" srcset="assets/img/tile-trava-160.webp 160w, assets/img/tile-trava-320.webp 320w, assets/img/tile-trava-560.webp 560w" sizes="(min-width: 900px) 8vw, 17vw"></div></div>
+              src="assets/img/tile-spc-320.webp" srcset="assets/img/tile-spc-160.webp 160w, assets/img/tile-spc-320.webp 320w, assets/img/tile-spc-560.webp 560w" sizes="(min-width: 900px) 8vw, 17vw"></div></div>
             <div class="tile tile--sm tile--down" data-slot="4"><div class="tile__face"><img alt="" width="320" height="320" decoding="async"
-              src="assets/img/tile-vinil-320.webp" srcset="assets/img/tile-vinil-160.webp 160w, assets/img/tile-vinil-320.webp 320w, assets/img/tile-vinil-560.webp 560w" sizes="(min-width: 900px) 8vw, 17vw"></div></div>
+              src="assets/img/tile-lvt-320.webp" srcset="assets/img/tile-lvt-160.webp 160w, assets/img/tile-lvt-320.webp 320w, assets/img/tile-lvt-560.webp 560w" sizes="(min-width: 900px) 8vw, 17vw"></div></div>
           </div>
         </div>
 
