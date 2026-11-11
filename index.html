@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="sr-Latn" class="no-js">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Floorspectrum — Prodaja, ugradnja i održavanje podova</title>
+    <meta name="description" content="Floorspectrum — Profesionalna ugradnja, prodaja i održavanje podova. Laminat, deking, tepisi, veštačka trava i pletni vinil, mašinsko čišćenje i show room u ulici Kralja Mihaila Zetskog 2, Beograd. Sve na jednom mestu.">
+    <meta name="theme-color" content="#000000">
+    <meta name="color-scheme" content="dark">
+    <link rel="canonical" href="https://floorspectrum.rs/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="sr_RS">
+    <meta property="og:site_name" content="Floorspectrum">
+    <meta property="og:title" content="Floorspectrum — Prodaja, ugradnja i održavanje podova">
+    <meta property="og:description" content="Laminat, deking, tepisi, veštačka trava i pletni vinil — Profesionalna ugradnja, prodaja i održavanje podova, sve na jednom mestu.">
+    <meta property="og:url" content="https://floorspectrum.rs/">
+    <meta property="og:image" content="https://floorspectrum.rs/assets/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Floorspectrum — podovi, sve na jednom mestu">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+    <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="assets/img/favicon-16.png" sizes="16x16" type="image/png">
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link rel="preload" href="assets/fonts/gilda-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <script>
+      /* Runs before first paint: enables JS styles and the intro screen (once per session). */
+      (function (d) {
+        var h = d.documentElement, seen = false;
+        h.classList.remove('no-js');
+        h.classList.add('js');
+        try { seen = sessionStorage.getItem('fs-intro') === '1'; } catch (e) {}
+        if (!seen) {
+          h.classList.add('is-intro');
+          /* Failsafe: never keep the intro longer than 4.5 s, even if the main script fails. */
+          window.__fsIntroFailsafe = setTimeout(function () { h.classList.remove('is-intro'); h.classList.add('is-ready'); }, 4500);
+        } else {
+          h.classList.add('is-ready');
+        }
+      })(document);
+    </script>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HomeAndConstructionBusiness",
+        "name": "Floorspectrum",
+        "url": "https://floorspectrum.rs/",
+        "logo": "https://floorspectrum.rs/assets/img/logo-512.png",
+        "image": "https://floorspectrum.rs/assets/img/og-image.jpg",
+        "description": "Profesionalna ugradnja, prodaja i održavanje podova: laminat, deking, tepisi, veštačka trava, pletni vinil i mašinsko čišćenje.",
+        "email": "office@floorspectrum.rs",
+        "telephone": "+381638852376",
+        "address": { "@type": "PostalAddress", "streetAddress": "Kralja Mihaila Zetskog 2", "postalCode": "11273", "addressLocality": "Beograd", "addressRegion": "Batajnica", "addressCountry": "RS" },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=Kralja+Mihaila+Zetskog+2%2C+11273+Batajnica%2C+Beograd",
+        "sameAs": [
+          "https://www.facebook.com/floorspectrum/",
+          "https://www.instagram.com/floorspectrum/"
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- ============ SVG SPRITE (logo + icons) ============ -->
+    <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <g id="logo-mark-g" fill="currentColor">
+          <g transform="rotate(45 29 28.5)">
+            <path fill-rule="evenodd" d="M8.85 8.35H49.15V48.65H8.85Z M14.45 13.95H26.2V25.7H14.45Z M31.8 13.95H43.55V25.7H31.8Z M14.45 31.3H26.2V43.05H14.45Z M31.8 31.3H43.55V43.05H31.8Z"/>
+            <path d="M15.45 14.95H25.2V24.7H15.45Z M32.8 32.3H42.55V42.05H32.8Z"/>
+          </g>
+          <g transform="rotate(45 53.54 28.5)">
+            <path fill-rule="evenodd" d="M33.39 8.35H73.69V48.65H33.39Z M38.99 13.95H68.09V43.05H38.99Z"/>
+          </g>
+          <path d="M46.44 12.32H48.64V20.14H46.44Z M46.44 36.86H48.64V44.68H46.44Z M58.44 12.32H60.64V44.68H58.44Z M70.44 24.32H72.64V32.68H70.44Z"/>
+        </g>
+        <g id="logo-word-g" fill="currentColor">
+          <path fill-rule="evenodd" d="M1.6 60H13.6V63.5H6.2V66.2H12.8V69.6H6.2V76H1.6Z M15.6 60H20.2V72.4H27.6V76H15.6Z M34.8 59.3H38A6.2 6.2 0 0 1 44.2 65.5V70.5A6.2 6.2 0 0 1 38 76.7H34.8A6.2 6.2 0 0 1 28.6 70.5V65.5A6.2 6.2 0 0 1 34.8 59.3Z M35.9 63.1H36.9A2.6 2.6 0 0 1 39.5 65.7V70.3A2.6 2.6 0 0 1 36.9 72.9H35.9A2.6 2.6 0 0 1 33.3 70.3V65.7A2.6 2.6 0 0 1 35.9 63.1Z M51.2 59.3H54.4A6.2 6.2 0 0 1 60.6 65.5V70.5A6.2 6.2 0 0 1 54.4 76.7H51.2A6.2 6.2 0 0 1 45 70.5V65.5A6.2 6.2 0 0 1 51.2 59.3Z M52.3 63.1H53.3A2.6 2.6 0 0 1 55.9 65.7V70.3A2.6 2.6 0 0 1 53.3 72.9H52.3A2.6 2.6 0 0 1 49.7 70.3V65.7A2.6 2.6 0 0 1 52.3 63.1Z M63.2 60H71.6C75.3 60 77.7 62.1 77.7 65.1C77.7 67.4 76.4 69.1 74.2 69.8L79.4 76H73.9L69.4 70.3H67.8V76H63.2Z M67.8 63.5H71.1C72.4 63.5 73.1 64.1 73.1 65.1C73.1 66.1 72.4 66.8 71.1 66.8H67.8Z"/>
+          <path fill="none" stroke="currentColor" stroke-width="1.1" stroke-miterlimit="2.5" d="M7.35 82.85C6.9 81.95 5.95 81.55 4.7 81.55C3.05 81.55 2.05 82.3 2.05 83.35C2.05 84.55 3.25 84.85 4.85 85.15C6.6 85.5 7.6 86 7.6 87.05C7.6 88.05 6.55 88.45 4.85 88.45C3.3 88.45 2.25 87.95 1.8 86.95 M10.75 89V81.55H14.25C15.75 81.55 16.65 82.35 16.65 83.6C16.65 84.85 15.75 85.65 14.25 85.65H10.75 M25.75 81.55H19.85V88.45H25.75 M19.85 85H25.15 M35.45 82.95C34.95 82.05 33.95 81.55 32.45 81.55C30.25 81.55 28.85 82.95 28.85 85C28.85 87.05 30.25 88.45 32.45 88.45C33.95 88.45 34.95 87.95 35.45 87.05 M39.1 81.55H46.7 M42.9 81.55V89 M49.75 89V81.55H53.25C54.75 81.55 55.65 82.35 55.65 83.6C55.65 84.85 54.75 85.65 53.25 85.65H49.75 M53.05 85.65L56.35 89 M59.55 81V86.25C59.55 87.65 60.6 88.45 62.5 88.45C64.4 88.45 65.45 87.65 65.45 86.25V81 M68.75 89V81.55L73.45 87.2L78.15 81.55V89"/>
+        </g>
+      </defs>
+      <symbol id="logo-stacked" viewBox="-0.5 -0.5 83.5 90">
+        <use href="#logo-mark-g"/><use href="#logo-word-g"/>
+      </symbol>
+      <symbol id="logo-horizontal" viewBox="-0.5 -0.5 211 58">
+        <use href="#logo-mark-g"/><use href="#logo-word-g" transform="translate(90.6 -82.7) scale(1.5)"/>
+      </symbol>
+
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M4 12h15M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M12 20V5M6 11l6-6 6 6"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M5.2 3.8h3.6l1.9 4.8-2.4 1.5a11.5 11.5 0 0 0 5.6 5.6l1.5-2.4 4.8 1.9v3.6a1.9 1.9 0 0 1-2 1.9A16.4 16.4 0 0 1 3.3 5.8a1.9 1.9 0 0 1 1.9-2Z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14"/><path d="m3.5 6 8.5 7 8.5-7"/></g></symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M14.5 8.5h2.8V4.7h-2.8a4 4 0 0 0-4 4v2.6H7.8v3.8h2.7V21h3.8v-5.9h2.8l.6-3.8h-3.4V9.2c0-.4.3-.7.7-.7Z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.9"/></g><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21.2s-6.8-6-6.8-11.3a6.8 6.8 0 0 1 13.6 0c0 5.3-6.8 11.3-6.8 11.3Z"/><circle cx="12" cy="9.8" r="2.4"/></g></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="m12 3 9 4.6-9 4.6-9-4.6Z"/><path d="m3 12.2 9 4.6 9-4.6"/><path d="m3 16.6 9 4.6 9-4.6"/></g></symbol>
+      <symbol id="i-ruler" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2.9 15.6 15.6 2.9l5.5 5.5L8.4 21.1Z"/><path d="m7.2 11.3 2 2M10 8.5l1.4 1.4M12.8 5.7l2 2M15.6 11.3l-1.4-1.4"/></g></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="m12 3 7.8 2.9v5.8c0 4.4-3.3 8.1-7.8 9.3-4.5-1.2-7.8-4.9-7.8-9.3V5.9Z"/><path d="m8.6 12 2.4 2.4 4.6-4.8"/></g></symbol>
+      <symbol id="i-grid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2.8 21.2 12 12 21.2 2.8 12Z"/><path d="m7.4 7.4 9.2 9.2M16.6 7.4l-9.2 9.2"/></g></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    </svg>
+
+    <a class="skip-link" href="#main">Preskoči na sadržaj</a>
+
+    <!-- ============ INTRO / LOADING SCREEN ============ -->
+    <div class="intro" id="intro" aria-hidden="true">
+      <div class="intro__planks">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="intro__stage">
+        <div class="intro__glow"></div>
+        <div class="intro__logo">
+          <svg class="intro__svg" viewBox="-0.5 -0.5 83.5 90" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <g class="intro__lines" fill="none" stroke="currentColor" stroke-width="0.6">
+              <path pathLength="1" transform="rotate(45 29 28.5)" d="M29 8.35H49.15V48.65H8.85V8.35Z"/>
+              <path pathLength="1" transform="rotate(45 53.54 28.5)" d="M53.54 8.35H73.69V48.65H33.39V8.35Z"/>
+            </g>
+            <g class="intro__mark"><use href="#logo-mark-g"/></g>
+            <g class="intro__word"><use href="#logo-word-g"/></g>
+          </svg>
+          <span class="intro__sheen"></span>
+        </div>
+        <p class="intro__tagline">Prodaja&ensp;·&ensp;Ugradnja&ensp;·&ensp;Održavanje</p>
+        <div class="intro__progress"><span id="introProgress"></span></div>
+      </div>
+    </div>
+
+    <!-- ============ HEADER ============ -->
+    <header class="site-header" id="siteHeader">
+      <div class="site-header__inner container">
+        <a class="brand" href="#pocetna" aria-label="Floorspectrum — početna">
+          <img class="brand__logo" src="assets/img/floorLogo.png" width="84" height="90" alt="" decoding="async" fetchpriority="high">
+        </a>
+
+        <nav class="nav" aria-label="Glavna navigacija">
+          <ul class="nav__list">
+            <li><a class="nav__link" href="#pocetna">Početna</a></li>
+            <li><a class="nav__link" href="#onama">O nama</a></li>
+            <li><a class="nav__link" href="#usluge">Usluge</a></li>
+            <li><a class="nav__link" href="#masinsko">Mašinsko čišćenje</a></li>
+            <li><a class="nav__link" href="#tapete-zavese">Tapete i zavese</a></li>
+            <li><a class="nav__link" href="#showRoom">Show room</a></li>
+            <li><a class="nav__link" href="#kontakt">Kontakt</a></li>
+          </ul>
+          <span class="nav__indicator" aria-hidden="true"></span>
+        </nav>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="menu-toggle__label">Meni</span>
+          <span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ============ MOBILE MENU ============ -->
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <div class="mobile-menu__grid" aria-hidden="true"></div>
+      <nav class="mobile-menu__nav container" aria-label="Mobilna navigacija">
+        <ol class="mobile-menu__list">
+          <li><a href="#pocetna"><span>01</span>Početna</a></li>
+          <li><a href="#onama"><span>02</span>O nama</a></li>
+          <li><a href="#usluge"><span>03</span>Usluge</a></li>
+          <li><a href="#masinsko"><span>04</span>Mašinsko čišćenje</a></li>
+          <li><a href="#tapete-zavese"><span>05</span>Tapete i zavese</a></li>
+          <li><a href="#showRoom"><span>06</span>Show room</a></li>
+          <li><a href="#kontakt"><span>07</span>Kontakt</a></li>
+        </ol>
+        <div class="mobile-menu__footer">
+          <a class="btn btn--primary" href="tel:+381638852376">
+            <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>+381&nbsp;63&nbsp;8852&nbsp;376</span>
+          </a>
+          <a class="mobile-menu__mail" href="mailto:office@floorspectrum.rs">office<wbr>@floorspectrum.rs</a>
+          <a class="mobile-menu__address" href="https://www.google.com/maps/search/?api=1&amp;query=Kralja+Mihaila+Zetskog+2%2C+11273+Batajnica%2C+Beograd" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Show room: Kralja Mihaila Zetskog 2</a>
+        </div>
+      </nav>
+    </div>
+
+    <main id="main">
+      <!-- ============ HERO ============ -->
+      <section class="hero" id="pocetna" aria-labelledby="heroKicker">
+        <div class="hero__media" aria-hidden="true">
+          <img class="hero__bg is-active" id="heroBgA"
+            src="assets/img/hero-laminat-1280.webp"
+            srcset="assets/img/hero-laminat-800.webp 800w, assets/img/hero-laminat-1280.webp 1280w, assets/img/hero-laminat-1920.webp 1920w, assets/img/hero-laminat-2560.webp 2560w"
+            sizes="(orientation: portrait) 70vh, 100vw"
+            alt="" width="1920" height="864" decoding="async">
+          <img class="hero__bg" id="heroBgB" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1920" height="864" decoding="async">
+          <svg class="hero__lattice" aria-hidden="true">
+            <defs>
+              <pattern id="lattice" width="72" height="72" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <path d="M72 0H0V72" fill="none" stroke="currentColor" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#lattice)"/>
+          </svg>
+        </div>
+
+        <div class="hero__inner container">
+          <div class="hero__content">
+            <h1 class="hero__kicker eyebrow" id="heroKicker" data-reveal>Profesionalna ugradnja, prodaja i održavanje podova</h1>
+            <p class="hero__title" data-reveal style="--d: 1">
+              <span class="hero__title-mask"><span class="hero__title-text" id="heroTitle">Laminat</span></span>
+            </p>
+            <p class="hero__desc" id="heroDesc" data-reveal style="--d: 2">Naš laminat je savršen izbor za svaki dom, pružajući izvanrednu otpornost i estetiku.</p>
+            <div class="hero__actions" data-reveal style="--d: 3">
+              <a class="btn btn--primary" href="#kontakt">
+                <span>Zatražite ponudu</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+              </a>
+              <a class="btn btn--ghost" href="#showRoom">
+                <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span>Posetite show room</span>
+              </a>
+            </div>
+
+            <div class="materials" data-reveal style="--d: 4">
+              <p class="materials__label" id="materialsLabel">Materijali</p>
+              <ul class="materials__list" role="list" aria-labelledby="materialsLabel" id="materialsList">
+                <li><button type="button" class="materials__btn is-active" aria-pressed="true"
+                  data-key="laminat" data-title="Laminat"
+                  data-desc="Naš laminat je savršen izbor za svaki dom, pružajući izvanrednu otpornost i estetiku."
+                  data-srcset="assets/img/hero-laminat-800.webp 800w, assets/img/hero-laminat-1280.webp 1280w, assets/img/hero-laminat-1920.webp 1920w, assets/img/hero-laminat-2560.webp 2560w"
+                  data-sizes="(orientation: portrait) 70vh, 100vw"
+                  data-tile="assets/img/tile-laminat-160.webp 160w, assets/img/tile-laminat-320.webp 320w, assets/img/tile-laminat-560.webp 560w">Laminat<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
+                  data-key="deking" data-title="Deking"
+                  data-desc="Dekorativni drveni podovi koji donose prirodnu lepotu u vaš prostor."
+                  data-srcset="assets/img/hero-deking-800.webp 800w, assets/img/hero-deking-land-1200.webp 1200w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
+                  data-tile="assets/img/tile-deking-160.webp 160w, assets/img/tile-deking-320.webp 320w, assets/img/tile-deking-560.webp 560w">Deking<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
+                  data-key="tepih" data-title="Tepih"
+                  data-desc="Tepih donosi toplinu i udobnost u svaki prostor, savršen za stvaranje prijatne atmosfere."
+                  data-srcset="assets/img/hero-tepih-800.webp 800w, assets/img/hero-tepih-land-1200.webp 1200w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
+                  data-tile="assets/img/tile-tepih-160.webp 160w, assets/img/tile-tepih-320.webp 320w, assets/img/tile-tepih-540.webp 540w">Tepih<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
+                  data-key="trava" data-title="Veštačka trava"
+                  data-desc="Veštačka trava je idealna za stvaranje zelenih površina bez brige o održavanju."
+                  data-srcset="assets/img/hero-trava-800.webp 800w, assets/img/hero-trava-1024.webp 1024w"
+                  data-sizes="100vw"
+                  data-tile="assets/img/tile-trava-160.webp 160w, assets/img/tile-trava-320.webp 320w, assets/img/tile-trava-560.webp 560w">Veštačka trava<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
+                  data-key="vinil" data-title="Pletni vinil"
+                  data-desc="Pletni vinil je savršen izbor za unutrašnje i spoljašnje prostore, pružajući otpornost i stil."
+                  data-srcset="assets/img/hero-vinil-800.webp 800w, assets/img/hero-vinil-land-1200.webp 1200w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
+                  data-tile="assets/img/tile-vinil-160.webp 160w, assets/img/tile-vinil-320.webp 320w, assets/img/tile-vinil-560.webp 560w">Pletni vinil<span class="materials__progress" aria-hidden="true"></span></button></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tiles" id="heroTiles" aria-hidden="true">
+            <span class="tiles__accent"></span>
+            <div class="tile tile--xl" data-slot="0"><div class="tile__face"><img alt="" width="560" height="560" fetchpriority="high"
+              src="assets/img/tile-laminat-560.webp" srcset="assets/img/tile-laminat-160.webp 160w, assets/img/tile-laminat-320.webp 320w, assets/img/tile-laminat-560.webp 560w" sizes="(min-width: 900px) 20vw, 40vw"></div></div>
+            <div class="tile tile--md tile--up" data-slot="1"><div class="tile__face"><img alt="" width="320" height="320" decoding="async"
+              src="assets/img/tile-deking-320.webp" srcset="assets/img/tile-deking-160.webp 160w, assets/img/tile-deking-320.webp 320w, assets/img/tile-deking-560.webp 560w" sizes="(min-width: 900px) 13vw, 26vw"></div></div>
+            <div class="tile tile--md tile--down" data-slot="2"><div class="tile__face"><img alt="" width="320" height="320" decoding="async"
+              src="assets/img/tile-tepih-320.webp" srcset="assets/img/tile-tepih-160.webp 160w, assets/img/tile-tepih-320.webp 320w, assets/img/tile-tepih-540.webp 540w" sizes="(min-width: 900px) 13vw, 26vw"></div></div>
+            <div class="tile tile--sm tile--up" data-slot="3"><div class="tile__face"><img alt="" width="320" height="320" decoding="async"
+              src="assets/img/tile-trava-320.webp" srcset="assets/img/tile-trava-160.webp 160w, assets/img/tile-trava-320.webp 320w, assets/img/tile-trava-560.webp 560w" sizes="(min-width: 900px) 8vw, 17vw"></div></div>
+            <div class="tile tile--sm tile--down" data-slot="4"><div class="tile__face"><img alt="" width="320" height="320" decoding="async"
+              src="assets/img/tile-vinil-320.webp" srcset="assets/img/tile-vinil-160.webp 160w, assets/img/tile-vinil-320.webp 320w, assets/img/tile-vinil-560.webp 560w" sizes="(min-width: 900px) 8vw, 17vw"></div></div>
+          </div>
+        </div>
+
+        <div class="rule container" data-reveal aria-hidden="true"></div>
+      </section>
+
+      <!-- ============ O NAMA ============ -->
+      <section class="section section--screen about" id="onama" aria-labelledby="onamaTitle">
+        <div class="container about__grid">
+          <div class="panel about__panel" data-reveal>
+            <p class="eyebrow"><span class="eyebrow__num">02</span>Ko smo mi</p>
+            <h2 class="h2" id="onamaTitle">O nama</h2>
+            <p class="lead">Naša firma Floorspectrum je posvećena kvalitetu i inovacijama u svetu podova.</p>
+            <p>Od izbora materijala u našem <span class="nowrap">show room-u</span>, preko precizne ugradnje, do redovnog održavanja i mašinskog čišćenja — vodimo svaki projekat od početka do kraja, sa istom pažnjom prema detalju.</p>
+            <ul class="checklist" role="list">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Pažljivo odabrani, kvalitetni materijali</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Precizna ugradnja i uredno izvođenje</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Podrška i održavanje nakon ugradnje</li>
+            </ul>
+          </div>
+          <figure class="about__media" data-reveal="planks">
+            <img src="assets/img/o-nama-767.webp" srcset="assets/img/o-nama-480.webp 480w, assets/img/o-nama-767.webp 767w"
+              sizes="(min-width: 900px) 45vw, 92vw" width="767" height="734" loading="lazy" decoding="async"
+              alt="Enterijer ugostiteljskog objekta sa podom u šari riblje kosti">
+            <span class="planks" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+          </figure>
+        </div>
+        <div class="rule container" data-reveal aria-hidden="true"></div>
+      </section>
+
+      <!-- ============ USLUGE ============ -->
+      <section class="section section--screen services" id="usluge" aria-labelledby="uslugeTitle">
+        <div class="container services__grid">
+          <div class="panel services__panel" data-reveal>
+            <p class="eyebrow"><span class="eyebrow__num">03</span>Šta radimo</p>
+            <h2 class="h2" id="uslugeTitle">Usluge</h2>
+            <p class="lead">Nudimo širok spektar usluga — od prodaje i ugradnje do održavanja podova.</p>
+            <p>Za detaljne informacije o uslugama i cenama, javite nam se — pripremićemo ponudu prema vašem prostoru.</p>
+            <a class="link-arrow" href="#kontakt">Zatražite ponudu<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+
+          <figure class="services__photo" data-reveal style="--d: 1">
+            <img src="assets/img/usluge-871.webp" srcset="assets/img/usluge-480.webp 480w, assets/img/usluge-640.webp 640w, assets/img/usluge-871.webp 871w"
+              sizes="(min-width: 900px) 52vw, 92vw" width="871" height="359" loading="lazy" decoding="async"
+              alt="Svetli laminatni pod u poslovnom prostoru">
+          </figure>
+
+          <div class="services__art" aria-hidden="true" data-reveal="assemble">
+            <div class="mosaic">
+              <img class="mosaic__base" src="assets/img/ikonice-podova-628.webp" width="628" height="993" loading="lazy" decoding="async" alt="">
+            </div>
+          </div>
+
+        </div>
+        <div class="rule container" data-reveal aria-hidden="true"></div>
+      </section>
+
+      <!-- ============ MAŠINSKO ČIŠĆENJE ============ -->
+      <section class="section section--screen cleaning" id="masinsko" aria-labelledby="masinskoTitle">
+        <div class="container">
+          <header class="section-head section-head--center" data-reveal>
+            <p class="eyebrow"><span class="eyebrow__num">04</span>Održavanje</p>
+            <h2 class="h2" id="masinskoTitle">Mašinsko čišćenje</h2>
+          </header>
+          <div class="cleaning__grid">
+            <div class="cleaning__art" data-reveal>
+              <span class="cleaning__orbit" aria-hidden="true"></span>
+              <div class="cleaning__icon">
+                <img src="assets/img/masinsko-480.webp" srcset="assets/img/masinsko-480.webp 480w, assets/img/masinsko-800.webp 800w"
+                  sizes="(min-width: 900px) 30vw, 70vw" width="480" height="480" loading="lazy" decoding="async"
+                  alt="Ikonica mašine za čišćenje podova">
+                <span class="cleaning__sheen" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="panel cleaning__panel" data-reveal style="--d: 1">
+              <p class="lead">Koristimo najmoderniju opremu i procedure za dubinsko čišćenje podova, osiguravajući vrhunski kvalitet usluge.</p>
+              <ol class="steps" role="list">
+                <li class="step"><span class="step__num">01</span><div><h3 class="step__title">Procena</h3><p>Pregled podloge i izbor odgovarajuće procedure i sredstava.</p></div></li>
+                <li class="step"><span class="step__num">02</span><div><h3 class="step__title">Dubinsko čišćenje</h3><p>Mašinsko čišćenje profesionalnom opremom, bez oštećenja površine.</p></div></li>
+                <li class="step"><span class="step__num">03</span><div><h3 class="step__title">Završna provera</h3><p>Osvežena, čista površina spremna za svakodnevnu upotrebu.</p></div></li>
+              </ol>
+              <a class="btn btn--primary" href="tel:+381638852376">
+                <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>Zakažite&nbsp;čišćenje</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="rule container" data-reveal aria-hidden="true"></div>
+      </section>
+
+      <!-- ============ ZADOVOLJNI KLIJENTI (TICKER) ============ -->
+      <section class="section references section--standalone" id="zadovoljniKlienti" aria-labelledby="klijentiTitle">
+        <div class="container">
+          <header class="section-head references__head" data-reveal>
+            <div>
+              <p class="eyebrow eyebrow--plain">Reference</p>
+              <h2 class="h2" id="klijentiTitle">Zadovoljni klijenti</h2>
+            </div>
+            <p class="references__text">Od terasa i dvorišta do kancelarija, hotela i ugostiteljskih objekata — podovi koji svakodnevno rade za naše klijente.</p>
+          </header>
+        </div>
+
+        <div class="ticker" id="ticker" data-reveal>
+          <div class="ticker__track" id="tickerTrack">
+            <ul class="ticker__group" role="list">
+              <li class="ref"><a class="ref__link" href="https://www.instagram.com/floorspectrum/" target="_blank" rel="noopener" draggable="false" aria-label="Deking — Terasa. Pogledajte na Instagramu (otvara se u novom prozoru)"><img src="assets/img/ref-deking-480.webp" srcset="assets/img/ref-deking-480.webp 480w, assets/img/ref-deking-720.webp 720w" sizes="(min-width: 900px) 360px, 260px" width="480" height="360" loading="lazy" decoding="async" alt="Drveni deking na terasi"><span class="ref__caption"><strong>Deking</strong>Terasa</span><span class="ig-badge" aria-hidden="true"><svg class="icon"><use href="#i-instagram"/></svg></span></a></li>
+              <li class="ref"><a class="ref__link" href="https://www.instagram.com/floorspectrum/" target="_blank" rel="noopener" draggable="false" aria-label="Laminat — Poslovni prostor. Pogledajte na Instagramu (otvara se u novom prozoru)"><img src="assets/img/ref-laminat-480.webp" srcset="assets/img/ref-laminat-480.webp 480w, assets/img/ref-laminat-720.webp 720w" sizes="(min-width: 900px) 360px, 260px" width="480" height="360" loading="lazy" decoding="async" alt="Laminat u poslovnom prostoru"><span class="ref__caption"><strong>Laminat</strong>Poslovni prostor</span><span class="ig-badge" aria-hidden="true"><svg class="icon"><use href="#i-instagram"/></svg></span></a></li>
+              <li class="ref"><a class="ref__link" href="https://www.instagram.com/floorspectrum/" target="_blank" rel="noopener" draggable="false" aria-label="Tepih — Hotelski enterijer. Pogledajte na Instagramu (otvara se u novom prozoru)"><img src="assets/img/ref-tepih-480.webp" srcset="assets/img/ref-tepih-480.webp 480w, assets/img/ref-tepih-720.webp 720w" sizes="(min-width: 900px) 360px, 260px" width="480" height="360" loading="lazy" decoding="async" alt="Dezenirani tepih u hotelskom holu"><span class="ref__caption"><strong>Tepih</strong>Hotelski enterijer</span><span class="ig-badge" aria-hidden="true"><svg class="icon"><use href="#i-instagram"/></svg></span></a></li>
+              <li class="ref"><a class="ref__link" href="https://www.instagram.com/floorspectrum/" target="_blank" rel="noopener" draggable="false" aria-label="Veštačka trava — Dvorište. Pogledajte na Instagramu (otvara se u novom prozoru)"><img src="assets/img/ref-trava-480.webp" srcset="assets/img/ref-trava-480.webp 480w, assets/img/ref-trava-720.webp 720w" sizes="(min-width: 900px) 360px, 260px" width="480" height="360" loading="lazy" decoding="async" alt="Veštačka trava u uređenom dvorištu"><span class="ref__caption"><strong>Veštačka trava</strong>Dvorište</span><span class="ig-badge" aria-hidden="true"><svg class="icon"><use href="#i-instagram"/></svg></span></a></li>
+              <li class="ref"><a class="ref__link" href="https://www.instagram.com/floorspectrum/" target="_blank" rel="noopener" draggable="false" aria-label="Pletni vinil — Kancelarija. Pogledajte na Instagramu (otvara se u novom prozoru)"><img src="assets/img/ref-vinil-480.webp" srcset="assets/img/ref-vinil-480.webp 480w, assets/img/ref-vinil-720.webp 720w" sizes="(min-width: 900px) 360px, 260px" width="480" height="360" loading="lazy" decoding="async" alt="Podne ploče u kancelariji"><span class="ref__caption"><strong>Pletni vinil</strong>Kancelarija</span><span class="ig-badge" aria-hidden="true"><svg class="icon"><use href="#i-instagram"/></svg></span></a></li>
+              <li class="ref"><a class="ref__link" href="https://www.instagram.com/floorspectrum/" target="_blank" rel="noopener" draggable="false" aria-label="Riblja kost — Ugostiteljski objekat. Pogledajte na Instagramu (otvara se u novom prozoru)"><img src="assets/img/ref-riblja-kost-480.webp" srcset="assets/img/ref-riblja-kost-480.webp 480w, assets/img/ref-riblja-kost-720.webp 720w" sizes="(min-width: 900px) 360px, 260px" width="480" height="360" loading="lazy" decoding="async" alt="Pod u šari riblje kosti u ugostiteljskom objektu"><span class="ref__caption"><strong>Riblja kost</strong>Ugostiteljski objekat</span><span class="ig-badge" aria-hidden="true"><svg class="icon"><use href="#i-instagram"/></svg></span></a></li>
+              <li class="ref"><a class="ref__link" href="https://www.instagram.com/floorspectrum/" target="_blank" rel="noopener" draggable="false" aria-label="Pletni vinil i tepih — Poslovni prostor. Pogledajte na Instagramu (otvara se u novom prozoru)"><img src="assets/img/ref-pletni-tepih-480.webp" srcset="assets/img/ref-pletni-tepih-480.webp 480w, assets/img/ref-pletni-tepih-720.webp 720w" sizes="(min-width: 900px) 360px, 260px" width="480" height="360" loading="lazy" decoding="async" alt="Pletni vinil i tepih u poslovnom prostoru"><span class="ref__caption"><strong>Pletni vinil i tepih</strong>Poslovni prostor</span><span class="ig-badge" aria-hidden="true"><svg class="icon"><use href="#i-instagram"/></svg></span></a></li>
+              <li class="ref"><a class="ref__link" href="https://www.instagram.com/floorspectrum/" target="_blank" rel="noopener" draggable="false" aria-label="Floorspectrum — Show room. Pogledajte na Instagramu (otvara se u novom prozoru)"><img src="assets/img/ref-showroom-480.webp" srcset="assets/img/ref-showroom-480.webp 480w, assets/img/ref-showroom-720.webp 720w" sizes="(min-width: 900px) 360px, 260px" width="480" height="360" loading="lazy" decoding="async" alt="Ulaz u Floorspectrum show room"><span class="ref__caption"><strong>Floorspectrum</strong>Show room</span><span class="ig-badge" aria-hidden="true"><svg class="icon"><use href="#i-instagram"/></svg></span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="container references__cta" data-reveal>
+          <p>Još realizovanih projekata i novosti pratite na našem Instagram profilu.</p>
+          <a class="btn btn--primary" href="https://www.instagram.com/floorspectrum/" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg><span>Pogledajte na Instagramu</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+        <div class="rule container" data-reveal aria-hidden="true"></div>
+      </section>
+
+      <!-- ============ TAPETE I ZAVESE ============ -->
+      <section class="section section--screen offers" id="tapete-zavese" aria-labelledby="tapeteTitle">
+        <div class="container offers__grid">
+          <div class="panel offers__panel" data-reveal>
+            <p class="eyebrow"><span class="eyebrow__num">05</span>Dekoracija enterijera</p>
+            <h2 class="h2" id="tapeteTitle">Tapete i zavese</h2>
+            <p class="lead">Detalji koji prostoru daju karakter.</p>
+            <p>Upotpunite enterijer pažljivo odabranim zidnim tapetama i zavesama. Posetite naš showroom i pronađite kombinaciju materijala, tekstura i dezena koja najbolje odgovara vašem prostoru.</p>
+            <ul class="offers__tags" role="list">
+              <li class="offers__tag">Zidne tapete</li>
+              <li class="offers__tag">Zavese po meri</li>
+            </ul>
+          </div>
+          <figure class="offers__media" data-reveal="planks" style="--d: 1">
+            <picture>
+              <source srcset="assets/img/zavesa-350.webp" type="image/webp">
+              <img src="assets/img/zavesa.jpg" width="350" height="350" loading="lazy" decoding="async"
+                alt="Svetle lanene zavese do poda pored prozora u svetlom enterijeru">
+            </picture>
+            <span class="planks" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
+            <span class="offers__frame" aria-hidden="true"></span>
+          </figure>
+        </div>
+        <div class="rule container" data-reveal aria-hidden="true"></div>
+      </section>
+
+      <!-- ============ SHOW ROOM ============ -->
+      <section class="section section--screen showroom" id="showRoom" aria-labelledby="showroomTitle">
+        <div class="container showroom__grid">
+          <div class="panel showroom__panel" data-reveal>
+            <p class="eyebrow"><span class="eyebrow__num">06</span>Posetite nas</p>
+            <h2 class="h2" id="showroomTitle">Show room</h2>
+            <p class="lead">Posetite nas u <span class="nowrap">show room-u</span> i odaberite podove po vašoj meri.</p>
+            <address class="showroom__address">
+              <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+              <span><strong>Kralja Mihaila Zetskog 2</strong>Batajnica, Beograd</span>
+            </address>
+            <div class="showroom__actions">
+              <a class="btn btn--primary" href="https://www.google.com/maps/search/?api=1&amp;query=Kralja+Mihaila+Zetskog+2%2C+11273+Batajnica%2C+Beograd" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span>Otvori u Google mapama</span>
+              </a>
+              <a class="btn btn--ghost" href="tel:+381638852376">
+                <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>Najavite&nbsp;dolazak</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="showroom__map" data-reveal style="--d: 1">
+            <iframe title="Lokacija Floorspectrum show room-a na Google mapi: Kralja Mihaila Zetskog 2"
+              src="https://maps.google.com/maps?q=Kralja%20Mihaila%20Zetskog%202%2C%2011273%20Batajnica%2C%20Beograd&amp;hl=sr-Latn&amp;z=16&amp;output=embed"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+
+          <div class="slideshow" id="slideshow" data-reveal style="--d: 2" role="region" aria-roledescription="galerija" aria-label="Show room galerija">
+            <div class="slideshow__viewport">
+              <img class="slideshow__img is-active" src="assets/img/showroom-spolja-1000.webp" srcset="assets/img/showroom-spolja-600.webp 600w, assets/img/showroom-spolja-1000.webp 1000w, assets/img/showroom-spolja-1400.webp 1400w" sizes="(min-width: 901px) 44vw, 46vw" width="1000" height="1333" loading="lazy" decoding="async" alt="Floorspectrum show room spolja, ulaz sa natpisom">
+              <img class="slideshow__img" src="assets/img/showroom-enterijer-1-1000.webp" srcset="assets/img/showroom-enterijer-1-600.webp 600w, assets/img/showroom-enterijer-1-1000.webp 1000w, assets/img/showroom-enterijer-1-1400.webp 1400w" sizes="(min-width: 901px) 44vw, 46vw" width="1000" height="1333" loading="lazy" decoding="async" alt="Unutrašnjost Floorspectrum show room-a sa logom i podom u šari riblje kosti">
+              <img class="slideshow__img" src="assets/img/showroom-enterijer-2-1000.webp" srcset="assets/img/showroom-enterijer-2-600.webp 600w, assets/img/showroom-enterijer-2-1000.webp 1000w, assets/img/showroom-enterijer-2-1400.webp 1400w" sizes="(min-width: 901px) 44vw, 46vw" width="1000" height="1333" loading="lazy" decoding="async" alt="Zid sa Floorspectrum logom i sto sa uzorcima u show room-u">
+              <img class="slideshow__img" src="assets/img/showroom-enterijer-3-1000.webp" srcset="assets/img/showroom-enterijer-3-600.webp 600w, assets/img/showroom-enterijer-3-1000.webp 1000w, assets/img/showroom-enterijer-3-1400.webp 1400w" sizes="(min-width: 901px) 44vw, 46vw" width="1000" height="1333" loading="lazy" decoding="async" alt="Uzorci zidnih panela i tekstila u show room-u">
+              <img class="slideshow__img" src="assets/img/showroom-enterijer-4-1000.webp" srcset="assets/img/showroom-enterijer-4-600.webp 600w, assets/img/showroom-enterijer-4-1000.webp 1000w, assets/img/showroom-enterijer-4-1400.webp 1400w" sizes="(min-width: 901px) 44vw, 46vw" width="1000" height="1333" loading="lazy" decoding="async" alt="Police sa katalozima i uzorcima podova u show room-u">
+            </div>
+            <div class="slideshow__dots" role="group" aria-label="Izbor slike">
+              <button type="button" class="is-active" aria-label="Slika 1: show room spolja" aria-pressed="true"></button>
+              <button type="button" aria-label="Slika 2: show room iznutra" aria-pressed="false"></button>
+              <button type="button" aria-label="Slika 3: zid sa logom" aria-pressed="false"></button>
+              <button type="button" aria-label="Slika 4: zidni paneli i tekstil" aria-pressed="false"></button>
+              <button type="button" aria-label="Slika 5: police sa uzorcima" aria-pressed="false"></button>
+            </div>
+          </div>
+        </div>
+        <div class="rule container" data-reveal aria-hidden="true"></div>
+      </section>
+    </main>
+
+    <!-- ============ KONTAKT / FOOTER ============ -->
+    <footer class="site-footer section--screen" id="kontakt" aria-labelledby="kontaktTitle">
+      <div class="container footer__content">
+        <div class="footer__head" data-reveal>
+          <div>
+            <p class="eyebrow eyebrow--light"><span class="eyebrow__num">07</span>Kontakt</p>
+            <h2 class="h2" id="kontaktTitle">Kontakti</h2>
+          </div>
+          <p class="lead">Razgovarajmo o vašem prostoru. Javite nam se za ponudu, savet ili termin u <span class="nowrap">show room-u</span>.</p>
+        </div>
+
+        <div class="contacts-wrap">
+        <ul class="contacts" role="list">
+          <li class="contact" data-reveal style="--d: 1">
+            <span class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
+            <span class="contact__body">
+              <span class="contact__label">Email</span>
+              <a class="contact__value" href="mailto:office@floorspectrum.rs">office<wbr>@floorspectrum.rs</a>
+              <a class="contact__value contact__value--sub" href="mailto:borislav.pantic@floorspectrum.rs">borislav.pantic<wbr>@floorspectrum.rs</a>
+            </span>
+          </li>
+          <li class="contact" data-reveal style="--d: 2">
+            <span class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+            <span class="contact__body">
+              <span class="contact__label">Telefon</span>
+              <a class="contact__value" href="tel:+381638852376">+381&nbsp;63&nbsp;8852&nbsp;376</a>
+            </span>
+          </li>
+          <li class="contact" data-reveal style="--d: 3">
+            <span class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg></span>
+            <span class="contact__body">
+              <span class="contact__label">Facebook</span>
+              <a class="contact__value" href="https://www.facebook.com/floorspectrum/" target="_blank" rel="noopener">Floor Spectrum</a>
+            </span>
+          </li>
+          <li class="contact" data-reveal style="--d: 4">
+            <span class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></span>
+            <span class="contact__body">
+              <span class="contact__label">Instagram</span>
+              <a class="contact__value" href="https://www.instagram.com/floorspectrum/" target="_blank" rel="noopener">@floorspectrum</a>
+            </span>
+          </li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="rule container" data-reveal aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="footer__bottom">
+          <a class="footer__brand" href="#pocetna" aria-label="Floorspectrum — na vrh stranice">
+            <svg viewBox="-0.5 -0.5 211 58" aria-hidden="true"><use href="#logo-horizontal"/></svg>
+          </a>
+          <p class="footer__copy">© <span id="year">2025</span> Floorspectrum. Sva prava zadržana.</p>
+          <a class="footer__top-link" href="#pocetna">Na vrh<svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
