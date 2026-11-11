@@ -458,6 +458,10 @@
 
     const fit = () => {
       titleEl.style.fontSize = '';
+      titleEl.style.whiteSpace = '';
+      titleMask.style.display = '';
+      titleMask.style.alignItems = '';
+      titleMask.style.minHeight = '';
       const cs = getComputedStyle(titleEl);
       const base = parseFloat(cs.fontSize);
       copyFont(cs);
@@ -469,7 +473,41 @@
         widest = Math.max(widest, measure.getBoundingClientRect().width);
       });
       const avail = titleMask.clientWidth;
-      if (widest > avail && avail > 0) titleEl.style.fontSize = `${Math.floor(base * (avail / widest) * 0.98)}px`;
+      if (widest > avail && avail > 0) {
+        const ratio = avail / widest;
+        if (ratio >= 0.72 || window.innerWidth >= 901) {
+          // Desktop keeps the original behaviour: one line, scaled to the widest name.
+          titleEl.style.fontSize = `${Math.floor(base * ratio * 0.98)}px`;
+        } else {
+          // Long names: wrap onto at most two lines instead of shrinking every title.
+          measure.style.whiteSpace = 'normal';
+          measure.style.width = `${avail}px`;
+          let size = base;
+          let tallest = 0;
+          for (; size > base * 0.4; size *= 0.96) {
+            measure.style.fontSize = `${size}px`;
+            measure.textContent = 'A';
+            const line = measure.getBoundingClientRect().height;
+            let ok = true;
+            tallest = 0;
+            materials.forEach((m) => {
+              measure.textContent = m.title;
+              const h = measure.getBoundingClientRect().height;
+              tallest = Math.max(tallest, h);
+              if (measure.scrollWidth > avail + 1 || h > line * 2.2) ok = false;
+            });
+            if (ok) break;
+          }
+          titleEl.style.fontSize = `${Math.floor(size)}px`;
+          titleEl.style.whiteSpace = 'normal';
+          // Reserve two lines and keep one-line names on the lower line, next to the description.
+          const pad = parseFloat(getComputedStyle(titleMask).paddingTop) + parseFloat(getComputedStyle(titleMask).paddingBottom);
+          titleMask.style.display = 'flex';
+          titleMask.style.alignItems = 'flex-end';
+          titleMask.style.minHeight = `${Math.ceil(tallest + pad)}px`;
+
+        }
+      }
 
       const ds = getComputedStyle(descEl);
       copyFont(ds);
@@ -481,6 +519,40 @@
         tallest = Math.max(tallest, measure.getBoundingClientRect().height);
       });
       descEl.style.minHeight = `${Math.ceil(tallest)}px`;
+      fitHeight();
+    };
+
+    /* Fit the whole hero (incl. the orange line) to the screen: if its content is taller than
+       the viewport, scale the content block down with CSS zoom, like the full-view sections.
+       The background stays full size, and width and side gutters are kept unchanged. */
+    const inner = $('.hero__inner', hero);
+    const vhProbe = doc.createElement('div');
+    vhProbe.setAttribute('aria-hidden', 'true');
+    vhProbe.style.cssText = 'position:absolute;top:0;left:0;width:0;height:100vh;height:100svh;visibility:hidden;pointer-events:none';
+    doc.body.appendChild(vhProbe);
+    const fitHeight = () => {
+      if (!inner) return;
+      ['zoom', 'maxWidth', 'paddingLeft', 'paddingRight'].forEach((k) => { inner.style[k] = ''; });
+      const vh = vhProbe.getBoundingClientRect().height || window.innerHeight;
+      if (vh < 480) return; // very short landscape screens scroll naturally
+      if (window.innerWidth >= 901) return; // desktop keeps its full-size layout
+      const over = () => hero.getBoundingClientRect().height - vh;
+      if (over() <= 0.5) return;
+      const cs = getComputedStyle(inner);
+      const maxW = cs.maxWidth === 'none' ? null : parseFloat(cs.maxWidth);
+      const pl = parseFloat(cs.paddingLeft) || 0;
+      const pr = parseFloat(cs.paddingRight) || 0;
+      const apply = (z) => {
+        inner.style.zoom = String(z);
+        if (maxW !== null) inner.style.maxWidth = `${maxW / z}px`;
+        inner.style.paddingLeft = `${pl / z}px`;
+        inner.style.paddingRight = `${pr / z}px`;
+      };
+      const need = inner.getBoundingClientRect().height;
+      let z = Math.floor(((need - over() - 6) / need) * 1000) / 1000;
+      z = Math.max(0.5, Math.min(1, z));
+      apply(z);
+      while (over() > 0.5 && z > 0.5) { z = Math.round((z - 0.02) * 1000) / 1000; apply(z); }
     };
 
     const setButtons = (index) => {
@@ -568,9 +640,89 @@
       });
     };
 
-    const select = (index) => {
+    /* Tablet & mobile: the diamond tiles turn like a vertical wheel. Each image travels
+       along a fixed arc (the cluster itself never moves): the current product sits in the
+       large front tile, the next ones below it, the previous ones above it. */
+    const wheelMq = window.matchMedia('(max-width: 900px)');
+    const WHEEL = { '-3': [88, -4, 10], '-2': [78.2, 12.3, 18], '-1': [60.2, 27.3, 28], 0: [33, 50, 44], 1: [60.2, 72.7, 28], 2: [78.2, 87.7, 18], 3: [88, 104, 10] };
+    const SLOT_OFF = [0, -1, 1, -2, 2]; // slot positions expressed as wheel offsets
+    let wheelOn = false;
+    let tileMat = tiles.map((_, slot) => order[slot]);
+    const wrapIdx = (i) => ((i % count) + count) % count;
+    const setTileImage = (tile, mi) => {
+      const img = $('img', tile);
+      if (!img || img.dataset.key === materials[mi].key) return;
+      img.srcset = materials[mi].tile;
+      img.src = firstCandidate(materials[mi].tile);
+      img.dataset.key = materials[mi].key;
+    };
+    const placeTile = (tile, off) => {
+      const [x, y, sz] = WHEEL[off];
+      tile.style.setProperty('--x', x);
+      tile.style.setProperty('--y', y);
+      tile.style.setProperty('--s', sz);
+      tile.style.zIndex = String(10 - Math.abs(off) * 3);
+      tile.style.opacity = Math.abs(off) >= 3 ? '0' : '';
+      tile.classList.toggle('tile--xl', off === 0);
+    };
+    const wheelInit = () => {
+      wheelOn = true;
+      tiles.forEach((tile, k) => {
+        const off = SLOT_OFF[k];
+        tileMat[k] = wrapIdx(current + off);
+        setTileImage(tile, tileMat[k]);
+        placeTile(tile, off);
+      });
+    };
+    const wheelReset = () => {
+      wheelOn = false;
+      tilesWrap.classList.remove('is-wheel');
+      tiles.forEach((tile, slot) => {
+        ['--x', '--y', '--s'].forEach((k) => tile.style.removeProperty(k));
+        tile.style.zIndex = '';
+        tile.style.opacity = '';
+        tile.classList.toggle('tile--xl', slot === 0);
+        tileMat[slot] = order[slot];
+        setTileImage(tile, order[slot]);
+      });
+    };
+    const offsetOf = (mi, center) => {
+      let d = wrapIdx(mi - center);
+      if (d > count / 2) d -= count;
+      return d;
+    };
+    const wheelTo = (index, dir, myToken) => {
+      tilesWrap.classList.add('is-wheel');
+      const leaving = [];
+      const taken = new Set();
+      tiles.forEach((tile, k) => {
+        const off = offsetOf(tileMat[k], index);
+        if (Math.abs(off) <= 2 && !taken.has(off)) { taken.add(off); placeTile(tile, off); } else leaving.push(k);
+      });
+      // Free wheel positions, filled starting from the side the wheel turns in from.
+      const free = [-2, -1, 0, 1, 2].filter((o) => !taken.has(o)).sort((a, b) => (dir > 0 ? b - a : a - b));
+      const exitOff = dir > 0 ? -3 : 3;
+      leaving.forEach((k, i) => {
+        const tile = tiles[k];
+        const target = free[i];
+        tileMat[k] = wrapIdx(index + target);
+        placeTile(tile, exitOff);
+        setTimeout(() => {
+          if (myToken !== token || !wheelOn) return;
+          tile.style.transition = 'none';
+          placeTile(tile, -exitOff);
+          setTileImage(tile, tileMat[k]);
+          void tile.offsetWidth;
+          tile.style.transition = '';
+          placeTile(tile, target);
+        }, reducedMotion.matches ? 0 : 420);
+      });
+    };
+
+    const select = (index, dirHint) => {
       index = ((index % count) + count) % count;
       if (index === current) return;
+      const prev = current;
       current = index;
       token += 1;
       const m = materials[index];
@@ -578,7 +730,12 @@
       setButtons(index);
       swapText(m);
       swapBackground(m, token);
-      swapTiles(token);
+      if (wheelOn) {
+        const d = wrapIdx(index - prev);
+        wheelTo(index, dirHint || (d <= count / 2 ? 1 : -1), token);
+      } else {
+        swapTiles(token);
+      }
     };
 
     // Initial tile keys
@@ -588,7 +745,9 @@
     });
 
     buttons.forEach((b, i) => b.addEventListener('click', () => select(i)));
-    tiles.forEach((tile, slot) => tile.addEventListener('click', () => select(order[slot])));
+    tiles.forEach((tile, slot) => tile.addEventListener('click', () => select(wheelOn ? tileMat[slot] : order[slot])));
+    if (wheelMq.matches) wheelInit();
+    wheelMq.addEventListener?.('change', () => { if (wheelMq.matches) wheelInit(); else wheelReset(); });
 
     /* Auto-rotation, driven by the CSS progress bar so pausing is frame-exact. */
     const setPaused = (reason, on) => {
@@ -598,7 +757,7 @@
     };
 
     hero.addEventListener('animationend', (e) => {
-      if (e.animationName === 'hero-progress' && hero.classList.contains('is-auto')) select(current + 1);
+      if (e.animationName === 'hero-progress' && hero.classList.contains('is-auto')) select(current + 1, 1);
     });
 
     const content = $('.hero__content', hero);
@@ -616,6 +775,51 @@
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(([entry]) => setPaused('offscreen', !entry.isIntersecting), { threshold: 0.2 }).observe(hero);
     }
+
+    /* Tablet & mobile: swipe the wheel up/down (or left/right) to change product. Touching
+       pauses the auto-rotation (the progress bar freezes); releasing resumes it. */
+    const swipeMq = wheelMq;
+    let swipe = null;
+    let suppressTileClick = false;
+    const endSwipe = (e) => {
+      if (!swipe || (e && e.pointerId !== swipe.id)) return;
+      const { dx, dy, axis } = swipe;
+      swipe = null;
+      tilesWrap.style.removeProperty('--wheel-drag');
+      tilesWrap.classList.remove('is-dragging');
+      const dist = axis === 'y' ? dy : dx;
+      if (axis && Math.abs(dist) > 36) {
+        suppressTileClick = true;
+        const dir = dist < 0 ? 1 : -1; // up / left = next, down / right = previous
+        select(current + dir, dir);
+      }
+      setPaused('swipe', false);
+    };
+    tilesWrap.addEventListener('pointerdown', (e) => {
+      if (!swipeMq.matches || (e.pointerType === 'mouse' && e.button !== 0)) return;
+      swipe = { id: e.pointerId, x: e.clientX, y: e.clientY, dx: 0, dy: 0, axis: null };
+      suppressTileClick = false;
+      setPaused('swipe', true);
+    });
+    tilesWrap.addEventListener('pointermove', (e) => {
+      if (!swipe || e.pointerId !== swipe.id) return;
+      swipe.dx = e.clientX - swipe.x;
+      swipe.dy = e.clientY - swipe.y;
+      if (!swipe.axis) {
+        if (Math.max(Math.abs(swipe.dx), Math.abs(swipe.dy)) < 8) return;
+        swipe.axis = Math.abs(swipe.dy) >= Math.abs(swipe.dx) ? 'y' : 'x';
+        try { tilesWrap.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
+        tilesWrap.classList.add('is-dragging');
+      }
+      // Only the images follow the finger (along the wheel); the cluster stays put.
+      if (swipe.axis === 'y') tilesWrap.style.setProperty('--wheel-drag', `${Math.max(-40, Math.min(40, swipe.dy * 0.3))}px`);
+    });
+    tilesWrap.addEventListener('pointerup', endSwipe);
+    tilesWrap.addEventListener('pointercancel', endSwipe);
+    tilesWrap.addEventListener('lostpointercapture', (e) => { if (e.target === tilesWrap) endSwipe(e); });
+    tilesWrap.addEventListener('click', (e) => {
+      if (suppressTileClick) { e.preventDefault(); e.stopPropagation(); suppressTileClick = false; }
+    }, true);
 
     const refit = debounce(fit, 120);
     window.addEventListener('resize', refit, { passive: true });
@@ -862,7 +1066,7 @@
     };
     ticker.addEventListener('pointerup', release);
     ticker.addEventListener('pointercancel', release);
-    ticker.addEventListener('lostpointercapture', release);
+    ticker.addEventListener('lostpointercapture', (e) => { if (e.target === ticker) release(e); });
 
     // A drag must never open a link.
     ticker.addEventListener('click', (e) => {
@@ -897,7 +1101,7 @@
     const images = $$('.slideshow__img', wrap);
     const dots = $$('.slideshow__dots button', wrap);
     if (images.length < 2) return;
-    const INTERVAL = 5200;
+    const INTERVAL = 7000;
     let index = 0;
     let timer = null;
     let inView = false;

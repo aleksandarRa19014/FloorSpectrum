@@ -121,14 +121,7 @@
       <div class="intro__stage">
         <div class="intro__glow"></div>
         <div class="intro__logo">
-          <svg class="intro__svg" viewBox="-0.5 -0.5 83.5 90" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
-            <g class="intro__lines" fill="none" stroke="currentColor" stroke-width="0.6">
-              <path pathLength="1" transform="rotate(45 29 28.5)" d="M29 8.35H49.15V48.65H8.85V8.35Z"/>
-              <path pathLength="1" transform="rotate(45 53.54 28.5)" d="M53.54 8.35H73.69V48.65H33.39V8.35Z"/>
-            </g>
-            <g class="intro__mark"><use href="#logo-mark-g"/></g>
-            <g class="intro__word"><use href="#logo-word-g"/></g>
-          </svg>
+          <img class="intro__img" src="assets/img/logo-floor-spectrum-270.webp" width="287" height="270" alt="" decoding="async">
           <span class="intro__sheen"></span>
         </div>
         <p class="intro__tagline">Prodaja&ensp;·&ensp;Ugradnja&ensp;·&ensp;Održavanje</p>
@@ -140,7 +133,7 @@
     <header class="site-header" id="siteHeader">
       <div class="site-header__inner container">
         <a class="brand" href="#pocetna" aria-label="Floor Spectrum — početna">
-          <img class="brand__logo" src="assets/img/floorLogo.png" width="84" height="90" alt="" decoding="async" fetchpriority="high">
+          <img class="brand__logo" src="assets/img/logo-floor-spectrum-180.webp" srcset="assets/img/logo-floor-spectrum-180.webp 2x, assets/img/logo-floor-spectrum-270.webp 3x" width="96" height="90" alt="" decoding="async" fetchpriority="high">
         </a>
 
         <nav class="nav" aria-label="Glavna navigacija">
@@ -191,8 +184,8 @@
       <section class="hero" id="pocetna" aria-labelledby="heroKicker">
         <div class="hero__media" aria-hidden="true">
           <img class="hero__bg is-active" id="heroBgA"
-            src="assets/img/hero-parket-land-1200.webp"
-            srcset="assets/img/hero-parket-800.webp 800w, assets/img/hero-parket-land-1200.webp 1200w, assets/img/hero-parket-land-1920.webp 1920w"
+            src="assets/img/hero-tepison-land-1200.webp"
+            srcset="assets/img/hero-tepison-800.webp 800w, assets/img/hero-tepison-land-1200.webp 1200w, assets/img/hero-tepison-land-1920.webp 1920w"
             sizes="(orientation: portrait) 50vw, 100vw"
             alt="" width="1920" height="864" decoding="async">
           <img class="hero__bg" id="heroBgB" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1920" height="864" decoding="async">
@@ -210,9 +203,9 @@
           <div class="hero__content">
             <h1 class="hero__kicker eyebrow" id="heroKicker" data-reveal>Profesionalna ugradnja, prodaja i održavanje podova</h1>
             <p class="hero__title" data-reveal style="--d: 1">
-              <span class="hero__title-mask"><span class="hero__title-text" id="heroTitle">Parket</span></span>
+              <span class="hero__title-mask"><span class="hero__title-text" id="heroTitle">Tepison</span></span>
             </p>
-            <p class="hero__desc" id="heroDesc" data-reveal style="--d: 2">Prirodni drveni parket unosi toplinu i eleganciju u prostor i traje decenijama.</p>
+            <p class="hero__desc" id="heroDesc" data-reveal style="--d: 2">Tepison donosi toplinu i udobnost u svaki prostor, savršen za stvaranje prijatne atmosfere.</p>
             <div class="hero__actions" data-reveal style="--d: 3">
               <a class="btn btn--primary" href="#kontakt">
                 <span>Zatražite ponudu</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
@@ -223,38 +216,20 @@
             </div>
 
             <div class="materials" data-reveal style="--d: 4">
-              <p class="materials__label" id="materialsLabel">Materijali</p>
+              <p class="materials__label" id="materialsLabel">Proizvodi</p>
               <ul class="materials__list" role="list" aria-labelledby="materialsLabel" id="materialsList">
                 <li><button type="button" class="materials__btn is-active" aria-pressed="true"
-                  data-key="parket" data-title="Parket"
+                  data-key="tepison" data-title="Tepison"
+                  data-desc="Tepison donosi toplinu i udobnost u svaki prostor, savršen za stvaranje prijatne atmosfere."
+                  data-srcset="assets/img/hero-tepison-800.webp 800w, assets/img/hero-tepison-land-1200.webp 1200w, assets/img/hero-tepison-land-1920.webp 1920w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
+                  data-tile="assets/img/tile-tepison-160.webp 160w, assets/img/tile-tepison-320.webp 320w, assets/img/tile-tepison-560.webp 560w">Tepison<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
+                  data-key="parket" data-title="Višeslojni parket"
                   data-desc="Prirodni drveni parket unosi toplinu i eleganciju u prostor i traje decenijama."
                   data-srcset="assets/img/hero-parket-800.webp 800w, assets/img/hero-parket-land-1200.webp 1200w, assets/img/hero-parket-land-1920.webp 1920w"
                   data-sizes="(orientation: portrait) 50vw, 100vw"
-                  data-tile="assets/img/tile-parket-160.webp 160w, assets/img/tile-parket-320.webp 320w, assets/img/tile-parket-560.webp 560w">Parket<span class="materials__progress" aria-hidden="true"></span></button></li>
-                <li><button type="button" class="materials__btn" aria-pressed="false"
-                  data-key="tepison" data-title="Tepison"
-                  data-desc="Tepison donosi toplinu i udobnost u svaki prostor, savršen za stvaranje prijatne atmosfere."
-                  data-srcset="assets/img/hero-tepih-800.webp 800w, assets/img/hero-tepih-land-1200.webp 1200w"
-                  data-sizes="(orientation: portrait) 50vw, 100vw"
-                  data-tile="assets/img/tile-tepih-160.webp 160w, assets/img/tile-tepih-320.webp 320w, assets/img/tile-tepih-540.webp 540w">Tepison<span class="materials__progress" aria-hidden="true"></span></button></li>
-                <li><button type="button" class="materials__btn" aria-pressed="false"
-                  data-key="tepisi-po-meri" data-title="Tepisi po meri"
-                  data-desc="Izaberite model iz naše ponude, a mi ćemo ga iskrojiti prema merama vašeg prostora."
-                  data-srcset="assets/img/hero-tepisi-po-meri-800.webp 800w, assets/img/hero-tepisi-po-meri-land-1200.webp 1200w, assets/img/hero-tepisi-po-meri-land-1920.webp 1920w"
-                  data-sizes="(orientation: portrait) 50vw, 100vw"
-                  data-tile="assets/img/tile-tepisi-po-meri-160.webp 160w, assets/img/tile-tepisi-po-meri-320.webp 320w, assets/img/tile-tepisi-po-meri-560.webp 560w">Tepisi po meri<span class="materials__progress" aria-hidden="true"></span></button></li>
-                <li><button type="button" class="materials__btn" aria-pressed="false"
-                  data-key="spc" data-title="SPC"
-                  data-desc="SPC podovi su kruti, vodootporni i izuzetno otporni na habanje, idealni i za kuhinje i kupatila."
-                  data-srcset="assets/img/hero-spc-800.webp 800w, assets/img/hero-spc-land-1200.webp 1200w, assets/img/hero-spc-land-1920.webp 1920w"
-                  data-sizes="(orientation: portrait) 50vw, 100vw"
-                  data-tile="assets/img/tile-spc-160.webp 160w, assets/img/tile-spc-320.webp 320w, assets/img/tile-spc-560.webp 560w">SPC<span class="materials__progress" aria-hidden="true"></span></button></li>
-                <li><button type="button" class="materials__btn" aria-pressed="false"
-                  data-key="lvt" data-title="LVT"
-                  data-desc="LVT luksuzne vinilne ploče verno imitiraju drvo, tihe su i prijatne pod nogom."
-                  data-srcset="assets/img/hero-lvt-800.webp 800w, assets/img/hero-lvt-land-1200.webp 1200w, assets/img/hero-lvt-land-1920.webp 1920w"
-                  data-sizes="(orientation: portrait) 50vw, 100vw"
-                  data-tile="assets/img/tile-lvt-160.webp 160w, assets/img/tile-lvt-320.webp 320w, assets/img/tile-lvt-560.webp 560w">LVT<span class="materials__progress" aria-hidden="true"></span></button></li>
+                  data-tile="assets/img/tile-parket-160.webp 160w, assets/img/tile-parket-320.webp 320w, assets/img/tile-parket-560.webp 560w">Višeslojni parket<span class="materials__progress" aria-hidden="true"></span></button></li>
                 <li><button type="button" class="materials__btn" aria-pressed="false"
                   data-key="laminat" data-title="Laminat"
                   data-desc="Naš laminat je savršen izbor za svaki dom, pružajući izvanrednu otpornost i estetiku."
@@ -264,21 +239,64 @@
                 <li><button type="button" class="materials__btn" aria-pressed="false"
                   data-key="deking" data-title="Deking"
                   data-desc="Dekorativni drveni podovi koji donose prirodnu lepotu u vaš prostor."
-                  data-srcset="assets/img/hero-deking-800.webp 800w, assets/img/hero-deking-land-1200.webp 1200w"
+                  data-srcset="assets/img/hero-deking-800.webp 800w, assets/img/hero-deking-land-1200.webp 1200w, assets/img/hero-deking-land-1920.webp 1920w"
                   data-sizes="(orientation: portrait) 50vw, 100vw"
                   data-tile="assets/img/tile-deking-160.webp 160w, assets/img/tile-deking-320.webp 320w, assets/img/tile-deking-560.webp 560w">Deking<span class="materials__progress" aria-hidden="true"></span></button></li>
                 <li><button type="button" class="materials__btn" aria-pressed="false"
+                  data-key="tekstilne-ploce" data-title="Tekstilne ploče"
+                  data-desc="Tekstilne ploče su praktično rešenje za kancelarije i poslovne prostore: tihe, otporne i lake za zamenu."
+                  data-srcset="assets/img/hero-tekstilne-ploce-800.webp 800w, assets/img/hero-tekstilne-ploce-land-1200.webp 1200w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
+                  data-tile="assets/img/tile-tekstilne-ploce-160.webp 160w, assets/img/tile-tekstilne-ploce-320.webp 320w, assets/img/tile-tekstilne-ploce-560.webp 560w">Tekstilne ploče<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
+                  data-key="lvt" data-title="LVT – luksuzne vinil ploče"
+                  data-desc="LVT luksuzne vinilne ploče verno imitiraju drvo, tihe su i prijatne pod nogom."
+                  data-srcset="assets/img/hero-lvt-800.webp 800w, assets/img/hero-lvt-land-1200.webp 1200w, assets/img/hero-lvt-land-1920.webp 1920w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
+                  data-tile="assets/img/tile-lvt-160.webp 160w, assets/img/tile-lvt-320.webp 320w, assets/img/tile-lvt-560.webp 560w">LVT – luksuzne vinil ploče<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
+                  data-key="spc" data-title="SPC"
+                  data-desc="SPC podovi su kruti, vodootporni i izuzetno otporni na habanje, idealni i za kuhinje i kupatila."
+                  data-srcset="assets/img/hero-spc-800.webp 800w, assets/img/hero-spc-land-1200.webp 1200w, assets/img/hero-spc-land-1920.webp 1920w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
+                  data-tile="assets/img/tile-spc-160.webp 160w, assets/img/tile-spc-320.webp 320w, assets/img/tile-spc-560.webp 560w">SPC<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li class="materials__break" aria-hidden="true"></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
                   data-key="trava" data-title="Veštačka trava"
                   data-desc="Veštačka trava je idealna za stvaranje zelenih površina bez brige o održavanju."
-                  data-srcset="assets/img/hero-trava-800.webp 800w, assets/img/hero-trava-1024.webp 1024w"
-                  data-sizes="100vw"
+                  data-srcset="assets/img/hero-trava-800.webp 800w, assets/img/hero-trava-land-1200.webp 1086w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
                   data-tile="assets/img/tile-trava-160.webp 160w, assets/img/tile-trava-320.webp 320w, assets/img/tile-trava-560.webp 560w">Veštačka trava<span class="materials__progress" aria-hidden="true"></span></button></li>
                 <li><button type="button" class="materials__btn" aria-pressed="false"
-                  data-key="vinil" data-title="Pletni vinil"
-                  data-desc="Pletni vinil je savršen izbor za unutrašnje i spoljašnje prostore, pružajući otpornost i stil."
-                  data-srcset="assets/img/hero-vinil-800.webp 800w, assets/img/hero-vinil-land-1200.webp 1200w"
+                  data-key="tepisi-po-meri" data-title="Tepisi po meri"
+                  data-desc="Izaberite model iz naše ponude, a mi ćemo ga iskrojiti prema merama vašeg prostora."
+                  data-srcset="assets/img/hero-tepisi-po-meri-800.webp 800w, assets/img/hero-tepisi-po-meri-land-1200.webp 1200w"
                   data-sizes="(orientation: portrait) 50vw, 100vw"
-                  data-tile="assets/img/tile-vinil-160.webp 160w, assets/img/tile-vinil-320.webp 320w, assets/img/tile-vinil-560.webp 560w">Pletni vinil<span class="materials__progress" aria-hidden="true"></span></button></li>
+                  data-tile="assets/img/tile-tepisi-po-meri-160.webp 160w, assets/img/tile-tepisi-po-meri-320.webp 320w, assets/img/tile-tepisi-po-meri-560.webp 560w">Tepisi po meri<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
+                  data-key="pleteni-vinil" data-title="Pleteni vinil"
+                  data-desc="Pleteni vinil je savršen izbor za unutrašnje i spoljašnje prostore, pružajući otpornost i stil."
+                  data-srcset="assets/img/hero-pleteni-vinil-800.webp 800w, assets/img/hero-pleteni-vinil-land-1200.webp 1200w, assets/img/hero-pleteni-vinil-land-1920.webp 1920w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
+                  data-tile="assets/img/tile-pleteni-vinil-160.webp 160w, assets/img/tile-pleteni-vinil-320.webp 320w, assets/img/tile-pleteni-vinil-560.webp 560w">Pleteni vinil<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
+                  data-key="cubu" data-title="CUBU lajsne"
+                  data-desc="CUBU lajsne daju završni detalj svakom podu, u širokom izboru boja i završnih obrada."
+                  data-srcset="assets/img/hero-cubu-800.webp 800w, assets/img/hero-cubu-land-1200.webp 1080w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
+                  data-tile="assets/img/tile-cubu-160.webp 160w, assets/img/tile-cubu-320.webp 320w, assets/img/tile-cubu-560.webp 560w">CUBU lajsne<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
+                  data-key="tapete-zavese" data-title="Tapete i zavese po meri"
+                  data-desc="Zidne tapete i zavese po meri upotpunjuju enterijer i daju mu poseban karakter."
+                  data-srcset="assets/img/hero-tapete-zavese-800.webp 800w, assets/img/hero-tapete-zavese-land-1200.webp 1024w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
+                  data-tile="assets/img/tile-tapete-zavese-160.webp 160w, assets/img/tile-tapete-zavese-320.webp 320w, assets/img/tile-tapete-zavese-560.webp 560w">Tapete i zavese po meri<span class="materials__progress" aria-hidden="true"></span></button></li>
+                <li><button type="button" class="materials__btn" aria-pressed="false"
+                  data-key="akusticni-paneli" data-title="Akustični paneli"
+                  data-desc="Akustični paneli smanjuju odjek i buku, a drvenim lamelama daju prostoru topao i moderan izgled."
+                  data-srcset="assets/img/hero-akusticni-paneli-800.webp 800w, assets/img/hero-akusticni-paneli-land-1200.webp 1200w, assets/img/hero-akusticni-paneli-land-1920.webp 1920w"
+                  data-sizes="(orientation: portrait) 50vw, 100vw"
+                  data-tile="assets/img/tile-akusticni-paneli-160.webp 160w, assets/img/tile-akusticni-paneli-320.webp 320w, assets/img/tile-akusticni-paneli-560.webp 560w">Akustični paneli<span class="materials__progress" aria-hidden="true"></span></button></li>
               </ul>
             </div>
           </div>
@@ -286,15 +304,15 @@
           <div class="tiles" id="heroTiles" aria-hidden="true">
             <span class="tiles__accent"></span>
             <div class="tile tile--xl" data-slot="0"><div class="tile__face"><img alt="" width="560" height="560" fetchpriority="high"
-              src="assets/img/tile-parket-560.webp" srcset="assets/img/tile-parket-160.webp 160w, assets/img/tile-parket-320.webp 320w, assets/img/tile-parket-560.webp 560w" sizes="(min-width: 900px) 20vw, 40vw"></div></div>
+              src="assets/img/tile-tepison-560.webp" srcset="assets/img/tile-tepison-160.webp 160w, assets/img/tile-tepison-320.webp 320w, assets/img/tile-tepison-560.webp 560w" sizes="(min-width: 900px) 20vw, 40vw"></div></div>
             <div class="tile tile--md tile--up" data-slot="1"><div class="tile__face"><img alt="" width="320" height="320" decoding="async"
-              src="assets/img/tile-tepih-320.webp" srcset="assets/img/tile-tepih-160.webp 160w, assets/img/tile-tepih-320.webp 320w, assets/img/tile-tepih-540.webp 540w" sizes="(min-width: 900px) 13vw, 26vw"></div></div>
+              src="assets/img/tile-parket-320.webp" srcset="assets/img/tile-parket-160.webp 160w, assets/img/tile-parket-320.webp 320w, assets/img/tile-parket-560.webp 560w" sizes="(min-width: 900px) 13vw, 26vw"></div></div>
             <div class="tile tile--md tile--down" data-slot="2"><div class="tile__face"><img alt="" width="320" height="320" decoding="async"
-              src="assets/img/tile-tepisi-po-meri-320.webp" srcset="assets/img/tile-tepisi-po-meri-160.webp 160w, assets/img/tile-tepisi-po-meri-320.webp 320w, assets/img/tile-tepisi-po-meri-560.webp 560w" sizes="(min-width: 900px) 13vw, 26vw"></div></div>
+              src="assets/img/tile-laminat-320.webp" srcset="assets/img/tile-laminat-160.webp 160w, assets/img/tile-laminat-320.webp 320w, assets/img/tile-laminat-560.webp 560w" sizes="(min-width: 900px) 13vw, 26vw"></div></div>
             <div class="tile tile--sm tile--up" data-slot="3"><div class="tile__face"><img alt="" width="320" height="320" decoding="async"
-              src="assets/img/tile-spc-320.webp" srcset="assets/img/tile-spc-160.webp 160w, assets/img/tile-spc-320.webp 320w, assets/img/tile-spc-560.webp 560w" sizes="(min-width: 900px) 8vw, 17vw"></div></div>
+              src="assets/img/tile-deking-320.webp" srcset="assets/img/tile-deking-160.webp 160w, assets/img/tile-deking-320.webp 320w, assets/img/tile-deking-560.webp 560w" sizes="(min-width: 900px) 8vw, 17vw"></div></div>
             <div class="tile tile--sm tile--down" data-slot="4"><div class="tile__face"><img alt="" width="320" height="320" decoding="async"
-              src="assets/img/tile-lvt-320.webp" srcset="assets/img/tile-lvt-160.webp 160w, assets/img/tile-lvt-320.webp 320w, assets/img/tile-lvt-560.webp 560w" sizes="(min-width: 900px) 8vw, 17vw"></div></div>
+              src="assets/img/tile-tekstilne-ploce-320.webp" srcset="assets/img/tile-tekstilne-ploce-160.webp 160w, assets/img/tile-tekstilne-ploce-320.webp 320w, assets/img/tile-tekstilne-ploce-560.webp 560w" sizes="(min-width: 900px) 8vw, 17vw"></div></div>
           </div>
         </div>
 
@@ -516,13 +534,12 @@
             <p class="eyebrow eyebrow--light"><span class="eyebrow__num">07</span>Kontakt</p>
             <h2 class="h2" id="kontaktTitle">Kontakti</h2>
           </div>
-          <p class="lead">Razgovarajmo o vašem prostoru. Javite nam se za ponudu, savet ili termin u <span class="nowrap">show room-u</span>.</p>
         </div>
 
         <div class="contacts-wrap">
         <ul class="contacts" role="list">
           <li class="contact" data-reveal style="--d: 1">
-            <span class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
+            <span class="contact__icon contact__icon--img"><img src="assets/img/contact-mail.png" width="40" height="40" alt="" loading="lazy" decoding="async"></span>
             <span class="contact__body">
               <span class="contact__label">Email</span>
               <a class="contact__value" href="mailto:office@floorspectrum.rs">office<wbr>@floorspectrum.rs</a>
@@ -530,21 +547,21 @@
             </span>
           </li>
           <li class="contact" data-reveal style="--d: 2">
-            <span class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+            <span class="contact__icon contact__icon--img"><img src="assets/img/contact-phone.png" width="40" height="40" alt="" loading="lazy" decoding="async"></span>
             <span class="contact__body">
               <span class="contact__label">Telefon</span>
               <a class="contact__value" href="tel:+381638852376">+381&nbsp;63&nbsp;8852&nbsp;376</a>
             </span>
           </li>
           <li class="contact" data-reveal style="--d: 3">
-            <span class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg></span>
+            <span class="contact__icon contact__icon--img"><img src="assets/img/contact-facebook.png" width="40" height="40" alt="" loading="lazy" decoding="async"></span>
             <span class="contact__body">
               <span class="contact__label">Facebook</span>
               <a class="contact__value" href="https://www.facebook.com/floorspectrum/" target="_blank" rel="noopener">Floor Spectrum</a>
             </span>
           </li>
           <li class="contact" data-reveal style="--d: 4">
-            <span class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></span>
+            <span class="contact__icon contact__icon--img"><img src="assets/img/contact-instagram.png" width="40" height="40" alt="" loading="lazy" decoding="async"></span>
             <span class="contact__body">
               <span class="contact__label">Instagram</span>
               <a class="contact__value" href="https://www.instagram.com/floorspectrum/" target="_blank" rel="noopener">@floorspectrum</a>
@@ -559,7 +576,7 @@
       <div class="container">
         <div class="footer__bottom">
           <a class="footer__brand" href="#pocetna" aria-label="Floor Spectrum — na vrh stranice">
-            <svg viewBox="-0.5 -0.5 211 58" aria-hidden="true"><use href="#logo-horizontal"/></svg>
+            <img class="footer__logo" src="assets/img/logo-floor-spectrum-180.webp" width="60" height="56" alt="" loading="lazy" decoding="async">
           </a>
           <p class="footer__copy">© <span id="year">2025</span> Floor Spectrum. Sva prava zadržana.</p>
           <a class="footer__top-link" href="#pocetna">Na vrh<svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>

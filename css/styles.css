@@ -99,7 +99,7 @@
   --ease-out: cubic-bezier(0.2, 0.75, 0.2, 1);
   --ease-in-out: cubic-bezier(0.7, 0, 0.2, 1);
   --ease-spring: cubic-bezier(0.2, 0.9, 0.25, 1.05);
-  --hero-interval: 6500ms;
+  --hero-interval: 7000ms;
 
   --shadow-lg: 0 40px 80px -40px rgba(0, 0, 0, 0.9), 0 18px 36px -24px rgba(0, 0, 0, 0.7);
 }
@@ -440,13 +440,15 @@ html.is-intro .intro {
 
 .intro__logo {
   position: relative;
-  width: clamp(116px, 15vw, 172px);
-  aspect-ratio: 83.5 / 90;
+  width: clamp(124px, 16vw, 184px);
+  aspect-ratio: 843 / 794;
 }
-.intro__svg {
+.intro__img {
+  display: block;
   width: 100%;
   height: 100%;
-  overflow: visible;
+  opacity: 0;
+  animation: intro-fade-in 0.6s ease 0.25s forwards;
 }
 .intro__lines path {
   stroke-dasharray: 1;
@@ -466,8 +468,8 @@ html.is-intro .intro {
 .intro__sheen {
   position: absolute;
   inset: 0;
-  -webkit-mask: url("../assets/img/logo-mask.svg") center / 100% 100% no-repeat;
-  mask: url("../assets/img/logo-mask.svg") center / 100% 100% no-repeat;
+  -webkit-mask: url("../assets/img/logo-floor-spectrum.png") center / 100% 100% no-repeat;
+  mask: url("../assets/img/logo-floor-spectrum.png") center / 100% 100% no-repeat;
   overflow: hidden;
   pointer-events: none;
 }
@@ -568,8 +570,7 @@ html.is-intro-out .intro__planks span { transform: translateY(-101%); }
   display: block;
   height: 90px;
   width: auto;
-  aspect-ratio: 84 / 90;
-  shape-rendering: geometricPrecision;
+  aspect-ratio: 843 / 794;
 }
 
 .nav { position: relative; }
@@ -889,6 +890,12 @@ html.is-ready .hero__lattice {
   display: flex;
   flex-wrap: wrap;
   gap: 0 clamp(16px, 2vw, 28px);
+}
+.materials__break { display: none; }
+/* Desktop: products in exactly two left-aligned rows (7 + 6) with the same spacing. */
+@media (min-width: 901px) {
+  .materials__list { width: max-content; max-width: calc(100vw - 2 * var(--gutter)); }
+  .materials__break { display: block; flex-basis: 100%; height: 0; }
 }
 .materials__btn {
   position: relative;
@@ -1754,7 +1761,7 @@ html.no-js .ticker .client { scroll-snap-align: start; }
   color: var(--c-text-3);
 }
 .footer__brand { color: #fff; }
-.footer__brand svg { height: 30px; width: auto; aspect-ratio: 211 / 58; }
+.footer__logo { display: block; height: 56px; width: auto; aspect-ratio: 843 / 794; }
 .footer__top-link {
   display: inline-flex;
   align-items: center;
@@ -2775,6 +2782,27 @@ html.js .rule[data-reveal].is-visible::before { transform: scaleX(1); }
   .intro__sheen { display: none; }
   .hero__bg,
   .slideshow__img { transform: none !important; }
+}
+
+/* Tablet & mobile: the diamond tiles can be swiped sideways; vertical page scroll still works. */
+@media (max-width: 900px) {
+  .tiles { touch-action: none; -webkit-user-select: none; user-select: none; }
+  .tiles img { -webkit-user-drag: none; pointer-events: none; }
+  /* Wheel: each tile glides to its next position on the arc. */
+  .tiles.is-wheel .tile {
+    transition: left 0.8s var(--ease-out), top 0.8s var(--ease-out), width 0.8s var(--ease-out), opacity 0.4s ease, translate 0.35s var(--ease-out);
+  }
+  .tiles .tile { translate: -50% calc(-50% + var(--wheel-drag, 0px)); }
+  .tiles.is-dragging .tile { transition: left 0.8s var(--ease-out), top 0.8s var(--ease-out), width 0.8s var(--ease-out), opacity 0.4s ease; }
+}
+
+/* Contact icons (white line icons): left of the text, vertically centred, one size everywhere. */
+.contacts .contact { flex-direction: row; align-items: center; gap: 14px; }
+.contacts .contact__icon.contact__icon--img { width: 40px; height: 40px; background: none; }
+.contact__icon--img img { display: block; width: 100%; height: 100%; object-fit: contain; }
+/* Tablets: four narrow cards cannot hold an icon beside the text, so use a 2 × 2 grid. */
+@media (min-width: 768px) and (max-width: 1000px) {
+  .contacts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media print {
