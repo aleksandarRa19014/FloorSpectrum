@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Floorspectrum — interactions
+   Floor Spectrum — interactions
    Vanilla JS, no dependencies. Loaded with `defer`.
    ========================================================================== */
 (() => {
